@@ -128,7 +128,7 @@ export class PeopleService {
   async list(actor: Actor, filter: { q?: string; sport?: string; orgId?: string }) {
     const vals: unknown[] = [];
     const where = [await this.visibilityFilter(actor, vals), 'p.merged_into_id IS NULL'];
-    if (filter.q) where.push(`(p.full_name ILIKE $${vals.push(`%${filter.q}%`)} OR p.full_name % $${vals.length})`);
+    if (filter.q) where.push(`(p.full_name ILIKE $${vals.push(`%${filter.q}%`)} OR p.full_name % $${vals.push(filter.q)})`);
     if (filter.sport) where.push(`EXISTS (SELECT 1 FROM people.affiliation x WHERE x.person_id = p.id AND x.sport_code = $${vals.push(filter.sport)})`);
     if (filter.orgId) where.push(`EXISTS (SELECT 1 FROM people.affiliation x WHERE x.person_id = p.id AND x.org_id = $${vals.push(filter.orgId)})`);
     const r = await this.db.query<PersonRow & { roles: { sport: string; role: string; status: string; org: string }[] }>(

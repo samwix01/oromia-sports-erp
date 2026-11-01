@@ -50,8 +50,8 @@ export class AuthService {
       await this.db.tx(async (tx) => {
         const failed = u.failed_logins + 1;
         await tx.query(
-          `UPDATE iam.user_account SET failed_logins = $2,
-             locked_until = CASE WHEN $2 >= $3 THEN now() + make_interval(mins => $4) ELSE locked_until END
+          `UPDATE iam.user_account SET failed_logins = $2::int,
+             locked_until = CASE WHEN $2::int >= $3::int THEN now() + make_interval(mins => $4::int) ELSE locked_until END
            WHERE id = $1`,
           [u.id, failed, MAX_FAILED, LOCK_MINUTES],
         );
