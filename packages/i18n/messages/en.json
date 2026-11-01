@@ -35,7 +35,8 @@
     "title": "Welcome",
     "intro": "Choose a workspace to begin. Records, approvals and reports you can see depend on your role, organisation, sport and territory.",
     "pillarsHeading": "Five pillars",
-    "noData": "No report received"
+    "noData": "No report received",
+    "prototypeHeading": "Workshop prototype (fictional data, nothing saved)"
   },
   "languages": {
     "om": "Afaan Oromoo",
@@ -262,6 +263,294 @@
       "returned": "Returned to federation",
       "fiscalYearLabel": "{year} EFY",
       "financeNote": "Budget figures are references for approval. The official ledger stays in the finance system."
+    }
+  },
+  "erp": {
+    "login": {
+      "title": "Sign in",
+      "email": "Email",
+      "password": "Password",
+      "totp": "One-time code",
+      "totpHint": "6 digits from your authenticator app",
+      "submit": "Sign in",
+      "testDataNote": "Test environment: fictional data only."
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "inbox": "Approvals",
+      "people": "People",
+      "registerPerson": "Register person",
+      "organisations": "Organisations",
+      "registerOrganisation": "Register organisation",
+      "duplicates": "Possible duplicates",
+      "users": "Users",
+      "account": "My account",
+      "signOut": "Sign out"
+    },
+    "roles": {
+      "platform.admin": "Platform administrator",
+      "bureau.executive": "Bureau executive",
+      "bureau.reviewer": "Bureau reviewer",
+      "fed.secretariat": "Federation secretariat",
+      "fed.registrar": "Federation registrar",
+      "club.admin": "Club administrator",
+      "territory.coordinator": "Territorial coordinator",
+      "data.steward": "Data steward"
+    },
+    "dashboard": {
+      "welcome": "Welcome, {name}",
+      "toAct": "{count, plural, =0 {No requests waiting for you} one {# request waiting for your decision} other {# requests waiting for your decision}}",
+      "notCollected": "No report received",
+      "pending": "{count} pending",
+      "overdue": "{count} overdue",
+      "source": "Source",
+      "bySport": "By sport",
+      "clubs": "Recognised clubs",
+      "nothing": "Nothing to show for your role yet."
+    },
+    "indicators": {
+      "federations_recognised": {
+        "label": "Federations recognised",
+        "definition": "Recognised federations ÷ federations in the register."
+      },
+      "clubs_recognised": {
+        "label": "Clubs, academies and schools recognised",
+        "definition": "Organisations with an approved recognition decision."
+      },
+      "unique_participants": {
+        "label": "Unique active participants",
+        "definition": "Distinct people with an active dated affiliation (not enrolments)."
+      },
+      "open_approvals": {
+        "label": "Open approval requests",
+        "definition": "Requests waiting for a decision."
+      },
+      "duplicates_open": {
+        "label": "Possible duplicates to decide",
+        "definition": "Flagged person records awaiting a registrar's decision."
+      },
+      "competitions_validated": {
+        "label": "Competitions with validated results",
+        "definition": "Available when the competitions module is in use."
+      },
+      "facilities_verified_use": {
+        "label": "Facilities with verified use",
+        "definition": "Available when the facilities module is in use."
+      }
+    },
+    "common": {
+      "sport": "Sport",
+      "noRecords": "No records",
+      "status": "Status",
+      "reason": "Reason",
+      "search": "Search by name"
+    },
+    "roleTypes": {
+      "athlete": "Athlete",
+      "coach": "Coach",
+      "official": "Official",
+      "staff": "Staff"
+    },
+    "inbox": {
+      "title": "Approvals",
+      "toAct": "Waiting for my decision",
+      "mine": "My requests",
+      "request": "Request",
+      "subject": "Subject",
+      "updated": "Updated"
+    },
+    "workflows": {
+      "org_recognition": "Organisation recognition",
+      "person_registration": "Person registration"
+    },
+    "states": {
+      "submitted": "Submitted",
+      "in_review": "In review",
+      "returned": "Returned",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "withdrawn": "Withdrawn"
+    },
+    "submission": {
+      "details": "Details (version {version})",
+      "decide": "Decision",
+      "reasonHint": "Required to return or reject.",
+      "segregation": "You cannot decide on a request you submitted or already approved at an earlier step.",
+      "resubmitTitle": "Correct and resubmit",
+      "history": "History"
+    },
+    "fields": {
+      "givenName": "Given name",
+      "fatherName": "Father's name",
+      "grandfatherName": "Grandfather's name",
+      "sex": "Sex",
+      "dateOfBirth": "Date of birth",
+      "phone": "Phone",
+      "email": "Email",
+      "territoryId": "Territory",
+      "assisted": "Assisted registration",
+      "type": "Type",
+      "name": "Name",
+      "shortName": "Short name",
+      "sportCode": "Sport",
+      "organisation": "Organisation",
+      "roleType": "Role",
+      "startDate": "Start date",
+      "fullName": "Full name"
+    },
+    "actions": {
+      "approve": "Approve",
+      "return": "Return with reason",
+      "reject": "Reject",
+      "resubmit": "Resubmit",
+      "withdraw": "Withdraw",
+      "submit": "Submit for approval"
+    },
+    "actionLog": {
+      "submit": "Submitted",
+      "resubmit": "Resubmitted",
+      "approve": "Approved",
+      "return": "Returned",
+      "reject": "Rejected",
+      "withdraw": "Withdrawn",
+      "comment": "Comment"
+    },
+    "affStatus": {
+      "requested": "Requested",
+      "active": "Active",
+      "ended": "Ended",
+      "suspended": "Suspended",
+      "rejected": "Rejected"
+    },
+    "identity": {
+      "unverified": "Unverified",
+      "pending": "Verification pending",
+      "verified": "Identity verified",
+      "disputed": "Disputed"
+    },
+    "register": {
+      "done": "Registration submitted",
+      "doneBody": "The federation registrar will verify the identity and affiliation.",
+      "duplicatesFlagged": "{count, plural, one {# possible duplicate flagged for the registrar} other {# possible duplicates flagged for the registrar}}",
+      "viewRequest": "View request",
+      "another": "Register another person",
+      "identity": "Identity",
+      "gcHint": "Gregorian date",
+      "affiliation": "Affiliation",
+      "scopeNote": "You can register people only into organisations you are assigned to."
+    },
+    "sex": {
+      "F": "Female",
+      "M": "Male"
+    },
+    "person": {
+      "merged": "Marked as the same person as an earlier record",
+      "profile": "Profile",
+      "masked": "Some details are hidden for your role.",
+      "affiliations": "Roles and affiliations",
+      "scopeNote": "Affiliations are dated and separate per sport.",
+      "requests": "Requests",
+      "openDuplicate": "Possible duplicate awaiting a decision"
+    },
+    "orgs": {
+      "allTypes": "All types",
+      "allStatuses": "All statuses",
+      "submitted": "Recognition requested",
+      "submittedBody": "The federation secretariat will review and decide.",
+      "recognitionNote": "Recognition is decided by the federation; the system records the decision.",
+      "members": "Active members",
+      "children": "Member organisations"
+    },
+    "orgTypes": {
+      "bureau": "Bureau",
+      "territorial_office": "Territorial office",
+      "federation": "Federation",
+      "club": "Club",
+      "academy": "Academy",
+      "school": "School",
+      "university": "University",
+      "facility_operator": "Facility operator",
+      "national_body": "National body",
+      "partner": "Partner"
+    },
+    "recognition": {
+      "unverified": "Unverified",
+      "pending": "Pending",
+      "recognised": "Recognised",
+      "suspended": "Suspended",
+      "dissolved": "Dissolved",
+      "rejected": "Rejected"
+    },
+    "duplicates": {
+      "score": "Match {score}%",
+      "signals": "Name {name}% · Date of birth: {dob} · Phone: {phone}",
+      "dob": {
+        "same": "same",
+        "near": "within a year",
+        "different": "different",
+        "unknown": "unknown"
+      },
+      "same": "Same person",
+      "different": "Different people",
+      "hold": "Hold",
+      "intro": "The system flags possible duplicates. A registrar decides, with a reason. Records are never merged automatically.",
+      "none": "No possible duplicates to decide."
+    },
+    "users": {
+      "ended": "ended",
+      "revoke": "Revoke",
+      "mfa": "MFA on",
+      "create": "Create user",
+      "tempPassword": "Temporary password",
+      "passwordRule": "At least 12 characters with letters and digits. Share it securely.",
+      "role": "Role",
+      "regionWide": "Region-wide (no organisation)",
+      "created": "User created.",
+      "grantNote": "You can grant only roles your own role allows, inside your own scope."
+    },
+    "account": {
+      "title": "My account",
+      "password": "Change password",
+      "current": "Current password",
+      "new": "New password",
+      "rule": "At least 12 characters with letters and digits.",
+      "changed": "Password changed.",
+      "change": "Change password",
+      "mfa": "Two-step sign-in",
+      "mfaOn": "Two-step sign-in is on",
+      "mfaStep1": "Add this key to an authenticator app, then enter the 6-digit code it shows.",
+      "mfaOpenApp": "Open in authenticator app",
+      "mfaCode": "6-digit code",
+      "mfaConfirm": "Turn on",
+      "mfaIntro": "Protect your account with a code from an authenticator app.",
+      "mfaEnable": "Set up two-step sign-in"
+    },
+    "errors": {
+      "request_failed": "Something went wrong. Please try again.",
+      "not_authenticated": "Please sign in.",
+      "forbidden": "You do not have access to this.",
+      "invalid_credentials": "Email or password is incorrect.",
+      "account_locked": "Too many attempts. Try again in 15 minutes.",
+      "totp_required": "Enter your one-time code.",
+      "totp_invalid": "The one-time code is not valid.",
+      "validation_failed": "Some fields are missing or invalid.",
+      "reason_required": "A reason is required.",
+      "cannot_act_on_step": "You cannot decide on this request.",
+      "only_submitter": "Only the person who submitted can do this.",
+      "invalid_state": "This request cannot be changed in its current state.",
+      "duplicate_unresolved": "A possible duplicate must be decided first.",
+      "person_merged_reject_registration": "This person was marked as already registered. Reject this request.",
+      "affiliation_overlap": "An active affiliation in this sport already covers these dates.",
+      "organisation_not_recognised": "The organisation is not recognised yet.",
+      "sport_not_offered_by_organisation": "This organisation does not offer that sport.",
+      "no_federation_for_sport": "No federation is set up for that sport.",
+      "email_taken": "A user with that email already exists.",
+      "weak_password": "The password does not meet the rules.",
+      "cannot_grant_role": "You cannot grant that role in that scope.",
+      "invalid_current_password": "The current password is incorrect.",
+      "already_decided": "This has already been decided.",
+      "not_found": "Not found.",
+      "cannot_revoke_own_assignment": "You cannot revoke your own role."
     }
   }
 }

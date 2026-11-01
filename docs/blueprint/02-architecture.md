@@ -8,9 +8,9 @@ The proposal asks for: *"a modular application with clear business-domain bounda
 |---|---|---|---|
 | ADR-01 | **Modular monolith** (one deployable API, strict module boundaries) | Small team, pilot scale, easier ops on constrained infrastructure; modules can be extracted later | Load or team size demands independent scaling |
 | ADR-02 | **TypeScript end-to-end** (NestJS + Next.js) | One language for API, web, offline PWA, shared Zod schemas | — |
-| ADR-03 | **PostgreSQL 16 + PostGIS**, schema-per-module | Transactional integrity, RLS, geo for activity map, mature ops | — |
-| ADR-04 | **Row-Level Security** as a second line of defence behind app-level permission checks | Federation/organisation separation must survive an app bug | — |
-| ADR-05 | **Keycloak** for identity (OIDC, MFA, SMS/OTP) | Self-hostable — hosting may need to be in-country (OD-01) | A national SSO becomes mandatory |
+| ADR-03 | **PostgreSQL 16 + PostGIS**, schema-per-module, **SQL-first** (hand-written migrations in `db/migrations`, parameterised queries via `pg`) | Transactional integrity, RLS, geo for activity map, mature ops; SQL-first keeps constraints (exclusion, triggers) explicit | Query volume makes a typed query builder (Drizzle/Kysely) worthwhile |
+| ADR-04 | **Row-Level Security** as a second line of defence behind app-level permission checks. *Release 1 enforces scope in the service layer (tested); RLS policies follow in Release 2.* | Federation/organisation separation must survive an app bug | — |
+| ADR-05 | **Built-in identity for Release 1** (scrypt passwords, TOTP two-step sign-in, server-side sessions in `iam.session`, httpOnly cookie). *Revised 2026-11-02 by the product owner: Keycloak was too heavy for the test hosting.* | No extra service to host; OIDC/Keycloak can be added before the pilot without changing permissions or scopes | Pilot needs SSO, SMS OTP or federation with a national identity provider |
 | ADR-06 | **Reporting schema with materialised views**, refreshed by jobs | "Separate reporting model" without new infra in phase 1; can move to a warehouse later | Analytical load hurts OLTP |
 | ADR-07 | **S3-compatible object storage** for documents/evidence (SeaweedFS in local dev; MinIO stopped publishing public images in 2025) | Portable on-prem or cloud; versioning + object lock for evidence | Production provider chosen (OD-01) |
 | ADR-08 | **Sport plugins** behind a typed contract | Shared model, separate technical rules (proposal's core principle) | — |

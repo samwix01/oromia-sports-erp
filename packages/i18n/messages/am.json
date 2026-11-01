@@ -35,7 +35,8 @@
     "title": "እንኳን ደህና መጡ",
     "intro": "ለመጀመር የሥራ ቦታ ይምረጡ። የሚያዩዋቸው መዝገቦች፣ ማጽደቂያዎችና ሪፖርቶች በሚናዎ፣ በድርጅትዎ፣ በስፖርቱና በአካባቢዎ ይወሰናሉ።",
     "pillarsHeading": "አምስቱ ምሰሶዎች",
-    "noData": "ሪፖርት አልደረሰም"
+    "noData": "ሪፖርት አልደረሰም",
+    "prototypeHeading": "የውይይት ፕሮቶታይፕ (የማሳያ መረጃ፣ ምንም አይቀመጥም)"
   },
   "languages": {
     "om": "Afaan Oromoo",
@@ -262,6 +263,294 @@
       "returned": "ለፌዴሬሽኑ ተመልሷል",
       "fiscalYearLabel": "{year} በጀት ዓመት",
       "financeNote": "የበጀት አሃዞች ለማጽደቅ ማጣቀሻ ብቻ ናቸው። ይፋዊ የሂሳብ መዝገቡ በፋይናንስ ሥርዓቱ ውስጥ ይቆያል።"
+    }
+  },
+  "erp": {
+    "login": {
+      "title": "ግባ",
+      "email": "ኢሜል",
+      "password": "የይለፍ ቃል",
+      "totp": "የአንድ ጊዜ ኮድ",
+      "totpHint": "ከማረጋገጫ መተግበሪያዎ 6 አሃዞች",
+      "submit": "ግባ",
+      "testDataNote": "የሙከራ አካባቢ፦ የማሳያ መረጃ ብቻ።"
+    },
+    "nav": {
+      "dashboard": "ዳሽቦርድ",
+      "inbox": "ማጽደቂያዎች",
+      "people": "ሰዎች",
+      "registerPerson": "ሰው መዝግብ",
+      "organisations": "ድርጅቶች",
+      "registerOrganisation": "ድርጅት መዝግብ",
+      "duplicates": "ሊደገሙ የሚችሉ",
+      "users": "ተጠቃሚዎች",
+      "account": "መለያዬ",
+      "signOut": "ውጣ"
+    },
+    "roles": {
+      "platform.admin": "የሥርዓት አስተዳዳሪ",
+      "bureau.executive": "የቢሮ ኃላፊ",
+      "bureau.reviewer": "የቢሮ ገምጋሚ",
+      "fed.secretariat": "የፌዴሬሽን ጽሕፈት ቤት",
+      "fed.registrar": "የፌዴሬሽን መዝጋቢ",
+      "club.admin": "የክለብ አስተዳዳሪ",
+      "territory.coordinator": "የአካባቢ አስተባባሪ",
+      "data.steward": "የመረጃ ጠባቂ"
+    },
+    "dashboard": {
+      "welcome": "እንኳን ደህና መጡ፣ {name}",
+      "toAct": "{count, plural, =0 {የሚጠብቅዎ ጥያቄ የለም} one {ውሳኔዎን የሚጠብቅ # ጥያቄ} other {ውሳኔዎን የሚጠብቁ # ጥያቄዎች}}",
+      "notCollected": "ሪፖርት አልደረሰም",
+      "pending": "{count} በመጠባበቅ ላይ",
+      "overdue": "{count} ጊዜው ያለፈ",
+      "source": "ምንጭ",
+      "bySport": "በስፖርት",
+      "clubs": "ዕውቅና ያገኙ ክለቦች",
+      "nothing": "ለሚናዎ ገና የሚታይ ነገር የለም።"
+    },
+    "indicators": {
+      "federations_recognised": {
+        "label": "ዕውቅና ያገኙ ፌዴሬሽኖች",
+        "definition": "ዕውቅና ያገኙ ፌዴሬሽኖች ÷ በመዝገቡ ያሉ ፌዴሬሽኖች።"
+      },
+      "clubs_recognised": {
+        "label": "ዕውቅና ያገኙ ክለቦች፣ አካዳሚዎችና ትምህርት ቤቶች",
+        "definition": "የጸደቀ የዕውቅና ውሳኔ ያላቸው ድርጅቶች።"
+      },
+      "unique_participants": {
+        "label": "ልዩ ንቁ ተሳታፊዎች",
+        "definition": "ንቁ ቀን ያለው አባልነት ያላቸው የተለያዩ ሰዎች (ምዝገባዎች አይደሉም)።"
+      },
+      "open_approvals": {
+        "label": "ክፍት የማጽደቂያ ጥያቄዎች",
+        "definition": "ውሳኔ የሚጠብቁ ጥያቄዎች።"
+      },
+      "duplicates_open": {
+        "label": "ውሳኔ የሚጠብቁ ሊደገሙ የሚችሉ",
+        "definition": "የመዝጋቢ ውሳኔ የሚጠብቁ ምልክት የተደረገባቸው መዝገቦች።"
+      },
+      "competitions_validated": {
+        "label": "ውጤታቸው የተረጋገጠ ውድድሮች",
+        "definition": "የውድድር ሞጁሉ ሥራ ላይ ሲውል ይገኛል።"
+      },
+      "facilities_verified_use": {
+        "label": "አጠቃቀማቸው የተረጋገጠ ተቋማት",
+        "definition": "የተቋማት ሞጁሉ ሥራ ላይ ሲውል ይገኛል።"
+      }
+    },
+    "common": {
+      "sport": "ስፖርት",
+      "noRecords": "መዝገብ የለም",
+      "status": "ሁኔታ",
+      "reason": "ምክንያት",
+      "search": "በስም ፈልግ"
+    },
+    "roleTypes": {
+      "athlete": "አትሌት",
+      "coach": "አሰልጣኝ",
+      "official": "ዳኛ/ኃላፊ",
+      "staff": "ሠራተኛ"
+    },
+    "inbox": {
+      "title": "ማጽደቂያዎች",
+      "toAct": "ውሳኔዬን የሚጠብቁ",
+      "mine": "የእኔ ጥያቄዎች",
+      "request": "ጥያቄ",
+      "subject": "ጉዳይ",
+      "updated": "የተሻሻለበት"
+    },
+    "workflows": {
+      "org_recognition": "የድርጅት ዕውቅና",
+      "person_registration": "የሰው ምዝገባ"
+    },
+    "states": {
+      "submitted": "ቀርቧል",
+      "in_review": "በግምገማ ላይ",
+      "returned": "ተመልሷል",
+      "approved": "ጸድቋል",
+      "rejected": "ውድቅ ሆኗል",
+      "withdrawn": "ተሰርዟል"
+    },
+    "submission": {
+      "details": "ዝርዝር (ስሪት {version})",
+      "decide": "ውሳኔ",
+      "reasonHint": "ለመመለስ ወይም ውድቅ ለማድረግ ያስፈልጋል።",
+      "segregation": "ያቀረቡትን ወይም በቀደመ ደረጃ ያጸደቁትን ጥያቄ መወሰን አይችሉም።",
+      "resubmitTitle": "አስተካክለው እንደገና ያቅርቡ",
+      "history": "ታሪክ"
+    },
+    "fields": {
+      "givenName": "ስም",
+      "fatherName": "የአባት ስም",
+      "grandfatherName": "የአያት ስም",
+      "sex": "ጾታ",
+      "dateOfBirth": "የትውልድ ቀን",
+      "phone": "ስልክ",
+      "email": "ኢሜል",
+      "territoryId": "አካባቢ",
+      "assisted": "በእገዛ የተመዘገበ",
+      "type": "ዓይነት",
+      "name": "ስም",
+      "shortName": "አጭር ስም",
+      "sportCode": "ስፖርት",
+      "organisation": "ድርጅት",
+      "roleType": "ሚና",
+      "startDate": "የመጀመሪያ ቀን",
+      "fullName": "ሙሉ ስም"
+    },
+    "actions": {
+      "approve": "አጽድቅ",
+      "return": "በምክንያት መልስ",
+      "reject": "ውድቅ አድርግ",
+      "resubmit": "እንደገና አቅርብ",
+      "withdraw": "አንሳ",
+      "submit": "ለማጽደቅ አቅርብ"
+    },
+    "actionLog": {
+      "submit": "ቀርቧል",
+      "resubmit": "እንደገና ቀርቧል",
+      "approve": "ጸድቋል",
+      "return": "ተመልሷል",
+      "reject": "ውድቅ ሆኗል",
+      "withdraw": "ተነስቷል",
+      "comment": "አስተያየት"
+    },
+    "affStatus": {
+      "requested": "ተጠይቋል",
+      "active": "ንቁ",
+      "ended": "አብቅቷል",
+      "suspended": "ታግዷል",
+      "rejected": "ውድቅ ሆኗል"
+    },
+    "identity": {
+      "unverified": "አልተረጋገጠም",
+      "pending": "ማረጋገጫ በመጠባበቅ ላይ",
+      "verified": "ማንነት ተረጋግጧል",
+      "disputed": "አከራካሪ"
+    },
+    "register": {
+      "done": "ምዝገባው ቀርቧል",
+      "doneBody": "የፌዴሬሽኑ መዝጋቢ ማንነትንና አባልነትን ያረጋግጣል።",
+      "duplicatesFlagged": "{count, plural, one {# ሊደገም የሚችል መዝገብ ለመዝጋቢው ምልክት ተደርጓል} other {# ሊደገሙ የሚችሉ መዝገቦች ለመዝጋቢው ምልክት ተደርገዋል}}",
+      "viewRequest": "ጥያቄውን ይመልከቱ",
+      "another": "ሌላ ሰው ይመዝግቡ",
+      "identity": "ማንነት",
+      "gcHint": "የግሪጎሪያን ቀን",
+      "affiliation": "አባልነት",
+      "scopeNote": "ሰዎችን መመዝገብ የሚችሉት በተመደቡባቸው ድርጅቶች ውስጥ ብቻ ነው።"
+    },
+    "sex": {
+      "F": "ሴት",
+      "M": "ወንድ"
+    },
+    "person": {
+      "merged": "ከቀደመ መዝገብ ጋር አንድ ሰው ተብሏል",
+      "profile": "መገለጫ",
+      "masked": "አንዳንድ ዝርዝሮች ለሚናዎ ተደብቀዋል።",
+      "affiliations": "ሚናዎችና አባልነቶች",
+      "scopeNote": "አባልነቶች ቀን ያላቸውና በእያንዳንዱ ስፖርት የተለዩ ናቸው።",
+      "requests": "ጥያቄዎች",
+      "openDuplicate": "ውሳኔ የሚጠብቅ ሊደገም የሚችል መዝገብ"
+    },
+    "orgs": {
+      "allTypes": "ሁሉም ዓይነቶች",
+      "allStatuses": "ሁሉም ሁኔታዎች",
+      "submitted": "ዕውቅና ተጠይቋል",
+      "submittedBody": "የፌዴሬሽኑ ጽሕፈት ቤት ገምግሞ ይወስናል።",
+      "recognitionNote": "ዕውቅና የሚወሰነው በፌዴሬሽኑ ነው፤ ሥርዓቱ ውሳኔውን ይመዘግባል።",
+      "members": "ንቁ አባላት",
+      "children": "አባል ድርጅቶች"
+    },
+    "orgTypes": {
+      "bureau": "ቢሮ",
+      "territorial_office": "የአካባቢ ጽሕፈት ቤት",
+      "federation": "ፌዴሬሽን",
+      "club": "ክለብ",
+      "academy": "አካዳሚ",
+      "school": "ትምህርት ቤት",
+      "university": "ዩኒቨርሲቲ",
+      "facility_operator": "የተቋም አንቀሳቃሽ",
+      "national_body": "ብሔራዊ አካል",
+      "partner": "አጋር"
+    },
+    "recognition": {
+      "unverified": "አልተረጋገጠም",
+      "pending": "በመጠባበቅ ላይ",
+      "recognised": "ዕውቅና አግኝቷል",
+      "suspended": "ታግዷል",
+      "dissolved": "ፈርሷል",
+      "rejected": "ውድቅ ሆኗል"
+    },
+    "duplicates": {
+      "score": "ተመሳሳይነት {score}%",
+      "signals": "ስም {name}% · የትውልድ ቀን፦ {dob} · ስልክ፦ {phone}",
+      "dob": {
+        "same": "ተመሳሳይ",
+        "near": "በአንድ ዓመት ውስጥ",
+        "different": "የተለየ",
+        "unknown": "አይታወቅም"
+      },
+      "same": "አንድ ሰው",
+      "different": "የተለያዩ ሰዎች",
+      "hold": "አቆይ",
+      "intro": "ሥርዓቱ ሊደገሙ የሚችሉ መዝገቦችን ያመላክታል። መዝጋቢው በምክንያት ይወስናል። መዝገቦች በራሳቸው ፈጽሞ አይዋሐዱም።",
+      "none": "ውሳኔ የሚጠብቅ ሊደገም የሚችል መዝገብ የለም።"
+    },
+    "users": {
+      "ended": "አብቅቷል",
+      "revoke": "ሰርዝ",
+      "mfa": "MFA በርቷል",
+      "create": "ተጠቃሚ ፍጠር",
+      "tempPassword": "ጊዜያዊ የይለፍ ቃል",
+      "passwordRule": "ቢያንስ 12 ቁምፊዎች፣ ፊደላትና አሃዞች። በጥንቃቄ ያጋሩ።",
+      "role": "ሚና",
+      "regionWide": "ክልል አቀፍ (ያለ ድርጅት)",
+      "created": "ተጠቃሚው ተፈጥሯል።",
+      "grantNote": "መስጠት የሚችሉት ሚናዎ የሚፈቅደውን ሚና ብቻ፣ በራስዎ ወሰን ውስጥ ነው።"
+    },
+    "account": {
+      "title": "መለያዬ",
+      "password": "የይለፍ ቃል ቀይር",
+      "current": "የአሁኑ የይለፍ ቃል",
+      "new": "አዲስ የይለፍ ቃል",
+      "rule": "ቢያንስ 12 ቁምፊዎች፣ ፊደላትና አሃዞች።",
+      "changed": "የይለፍ ቃሉ ተቀይሯል።",
+      "change": "የይለፍ ቃል ቀይር",
+      "mfa": "ባለሁለት ደረጃ መግቢያ",
+      "mfaOn": "ባለሁለት ደረጃ መግቢያ በርቷል",
+      "mfaStep1": "ይህን ቁልፍ ወደ ማረጋገጫ መተግበሪያ ያክሉ፣ ከዚያ የሚያሳየውን ባለ6 አሃዝ ኮድ ያስገቡ።",
+      "mfaOpenApp": "በማረጋገጫ መተግበሪያ ክፈት",
+      "mfaCode": "ባለ6 አሃዝ ኮድ",
+      "mfaConfirm": "አብራ",
+      "mfaIntro": "መለያዎን ከማረጋገጫ መተግበሪያ በሚገኝ ኮድ ይጠብቁ።",
+      "mfaEnable": "ባለሁለት ደረጃ መግቢያ አዘጋጅ"
+    },
+    "errors": {
+      "request_failed": "ችግር ተፈጥሯል። እባክዎ እንደገና ይሞክሩ።",
+      "not_authenticated": "እባክዎ ይግቡ።",
+      "forbidden": "ይህን ለማግኘት ፈቃድ የለዎትም።",
+      "invalid_credentials": "ኢሜል ወይም የይለፍ ቃል ትክክል አይደለም።",
+      "account_locked": "ብዙ ሙከራዎች። ከ15 ደቂቃ በኋላ ይሞክሩ።",
+      "totp_required": "የአንድ ጊዜ ኮድዎን ያስገቡ።",
+      "totp_invalid": "የአንድ ጊዜ ኮዱ ትክክል አይደለም።",
+      "validation_failed": "አንዳንድ መስኮች ጎድለዋል ወይም ትክክል አይደሉም።",
+      "reason_required": "ምክንያት ያስፈልጋል።",
+      "cannot_act_on_step": "በዚህ ጥያቄ ላይ መወሰን አይችሉም።",
+      "only_submitter": "ይህን ማድረግ የሚችለው ያቀረበው ሰው ብቻ ነው።",
+      "invalid_state": "ይህ ጥያቄ አሁን ባለበት ሁኔታ ሊቀየር አይችልም።",
+      "duplicate_unresolved": "መጀመሪያ ሊደገም የሚችለው መዝገብ መወሰን አለበት።",
+      "person_merged_reject_registration": "ይህ ሰው ቀድሞ ተመዝግቧል ተብሏል። ይህን ጥያቄ ውድቅ ያድርጉ።",
+      "affiliation_overlap": "በዚህ ስፖርት ንቁ አባልነት እነዚህን ቀናት አስቀድሞ ይሸፍናል።",
+      "organisation_not_recognised": "ድርጅቱ ገና ዕውቅና አላገኘም።",
+      "sport_not_offered_by_organisation": "ይህ ድርጅት ያን ስፖርት አያቀርብም።",
+      "no_federation_for_sport": "ለዚያ ስፖርት ፌዴሬሽን አልተዘጋጀም።",
+      "email_taken": "ያ ኢሜል ያለው ተጠቃሚ አስቀድሞ አለ።",
+      "weak_password": "የይለፍ ቃሉ ደንቦቹን አያሟላም።",
+      "cannot_grant_role": "ያን ሚና በዚያ ወሰን መስጠት አይችሉም።",
+      "invalid_current_password": "የአሁኑ የይለፍ ቃል ትክክል አይደለም።",
+      "already_decided": "ይህ አስቀድሞ ተወስኗል።",
+      "not_found": "አልተገኘም።",
+      "cannot_revoke_own_assignment": "የራስዎን ሚና መሰረዝ አይችሉም።"
     }
   }
 }

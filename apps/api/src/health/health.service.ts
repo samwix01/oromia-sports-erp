@@ -24,7 +24,7 @@ export class HealthService {
   private async run(name: ProbeName): Promise<DependencyStatus> {
     const started = performance.now();
     try {
-      await this.probes[name]();
+      await this.probes[name]!();
       return { name, status: 'ok', latencyMs: Math.round(performance.now() - started) };
     } catch (err) {
       return {

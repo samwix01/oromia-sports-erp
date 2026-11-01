@@ -35,7 +35,8 @@
     "title": "Baga nagaan dhuftan",
     "intro": "Jalqabuuf bakka hojii filadhaa. Galmeewwan, raggaasisaa fi gabaasni isin argitan gahee, dhaabbata, ispoortii fi naannoo keessan irratti hundaa'a.",
     "pillarsHeading": "Utubaalee shan",
-    "noData": "Gabaasni hin dhufne"
+    "noData": "Gabaasni hin dhufne",
+    "prototypeHeading": "Fakkii hojii marii (ragaa fakkeenyaa, homaa hin olkaa'amu)"
   },
   "languages": {
     "om": "Afaan Oromoo",
@@ -262,6 +263,294 @@
       "returned": "Federeeshiniif deebi'eera",
       "fiscalYearLabel": "{year} B.B.I",
       "financeNote": "Lakkoofsi baajataa wabii raggaasisaaf qofa. Galmeen herregaa sirrii sirna faayinaansii keessa tura."
+    }
+  },
+  "erp": {
+    "login": {
+      "title": "Seeni",
+      "email": "Imeelii",
+      "password": "Jecha icciitii",
+      "totp": "Koodii yeroo tokkoo",
+      "totpHint": "Lakkoofsa 6 appii mirkaneessaa irraa",
+      "submit": "Seeni",
+      "testDataNote": "Naannoo qormaataa: ragaa fakkeenyaa qofa."
+    },
+    "nav": {
+      "dashboard": "Gabatee",
+      "inbox": "Raggaasisa",
+      "people": "Namoota",
+      "registerPerson": "Nama galmeessi",
+      "organisations": "Dhaabbilee",
+      "registerOrganisation": "Dhaabbata galmeessi",
+      "duplicates": "Galmee lama ta'uu danda'an",
+      "users": "Fayyadamtoota",
+      "account": "Herrega koo",
+      "signOut": "Ba'i"
+    },
+    "roles": {
+      "platform.admin": "Bulchaa sirnichaa",
+      "bureau.executive": "Hoggansa biiroo",
+      "bureau.reviewer": "Gamaaggamaa biiroo",
+      "fed.secretariat": "Sekreteriyaata federeeshinii",
+      "fed.registrar": "Galmeessaa federeeshinii",
+      "club.admin": "Bulchaa kilabaa",
+      "territory.coordinator": "Qindeessaa naannoo",
+      "data.steward": "Eegdu ragaa"
+    },
+    "dashboard": {
+      "welcome": "Baga nagaan dhuftan, {name}",
+      "toAct": "{count, plural, =0 {Gaaffiin isin eegu hin jiru} one {Gaaffii # murtii keessan eegu} other {Gaaffiiwwan # murtii keessan eegan}}",
+      "notCollected": "Gabaasni hin dhufne",
+      "pending": "{count} eegamaa jira",
+      "overdue": "{count} yeroon darbe",
+      "source": "Madda",
+      "bySport": "Akka ispoortiitti",
+      "clubs": "Kilaboota beekamtii qaban",
+      "nothing": "Gahee keessaniif ammaaf wanti agarsiifamu hin jiru."
+    },
+    "indicators": {
+      "federations_recognised": {
+        "label": "Federeeshinoota beekamtii qaban",
+        "definition": "Federeeshinoota beekamtii qaban ÷ federeeshinoota galmee keessa jiran."
+      },
+      "clubs_recognised": {
+        "label": "Kilaboota, akkaadaamii fi manneen barnootaa beekamtii qaban",
+        "definition": "Dhaabbilee murtii beekamtii raggaasifame qaban."
+      },
+      "unique_participants": {
+        "label": "Hirmaattota addaa hojii irra jiran",
+        "definition": "Namoota addaa hirmaannaa guyyaa qabu hojii irra jiru qaban (galmee sagantaa miti)."
+      },
+      "open_approvals": {
+        "label": "Gaaffiiwwan raggaasisaa banaa",
+        "definition": "Gaaffiiwwan murtii eegan."
+      },
+      "duplicates_open": {
+        "label": "Galmee lama ta'uu danda'an murteessuu",
+        "definition": "Galmeewwan namaa mallattoo qaban murtii galmeessaa eegan."
+      },
+      "competitions_validated": {
+        "label": "Dorgommiiwwan bu'aan mirkanaa'e",
+        "definition": "Yeroo kutaan dorgommii hojii irra oolu ni argama."
+      },
+      "facilities_verified_use": {
+        "label": "Dhaabbilee itti fayyadamni mirkanaa'e",
+        "definition": "Yeroo kutaan dhaabbilee hojii irra oolu ni argama."
+      }
+    },
+    "common": {
+      "sport": "Ispoortii",
+      "noRecords": "Galmeen hin jiru",
+      "status": "Haala",
+      "reason": "Sababa",
+      "search": "Maqaan barbaadi"
+    },
+    "roleTypes": {
+      "athlete": "Atleetii",
+      "coach": "Leenjisaa",
+      "official": "Qondaala",
+      "staff": "Hojjetaa"
+    },
+    "inbox": {
+      "title": "Raggaasisa",
+      "toAct": "Murtii koo eegan",
+      "mine": "Gaaffiiwwan koo",
+      "request": "Gaaffii",
+      "subject": "Dhimma",
+      "updated": "Kan haaromfame"
+    },
+    "workflows": {
+      "org_recognition": "Beekamtii dhaabbataa",
+      "person_registration": "Galmee namaa"
+    },
+    "states": {
+      "submitted": "Ergameera",
+      "in_review": "Gamaaggamaa jira",
+      "returned": "Deebi'eera",
+      "approved": "Raggaasifameera",
+      "rejected": "Dideameera",
+      "withdrawn": "Deebifameera"
+    },
+    "submission": {
+      "details": "Bal'ina (fooyya'iinsa {version})",
+      "decide": "Murtii",
+      "reasonHint": "Deebisuuf ykn diduuf barbaachisa.",
+      "segregation": "Gaaffii isin ergitan ykn sadarkaa duraa irratti raggaasiftan murteessuu hin dandeessan.",
+      "resubmitTitle": "Sirreessii irra deebi'ii ergi",
+      "history": "Seenaa"
+    },
+    "fields": {
+      "givenName": "Maqaa",
+      "fatherName": "Maqaa abbaa",
+      "grandfatherName": "Maqaa akaakayyuu",
+      "sex": "Saala",
+      "dateOfBirth": "Guyyaa dhalootaa",
+      "phone": "Bilbila",
+      "email": "Imeelii",
+      "territoryId": "Naannoo",
+      "assisted": "Galmee gargaarsaan",
+      "type": "Gosa",
+      "name": "Maqaa",
+      "shortName": "Maqaa gabaabaa",
+      "sportCode": "Ispoortii",
+      "organisation": "Dhaabbata",
+      "roleType": "Gahee",
+      "startDate": "Guyyaa jalqabaa",
+      "fullName": "Maqaa guutuu"
+    },
+    "actions": {
+      "approve": "Raggaasisi",
+      "return": "Sababa waliin deebisi",
+      "reject": "Didi",
+      "resubmit": "Irra deebi'ii ergi",
+      "withdraw": "Deebifadhu",
+      "submit": "Raggaasisaaf ergi"
+    },
+    "actionLog": {
+      "submit": "Ergame",
+      "resubmit": "Irra deebi'ee ergame",
+      "approve": "Raggaasifame",
+      "return": "Deebi'e",
+      "reject": "Dideame",
+      "withdraw": "Deebifame",
+      "comment": "Yaada"
+    },
+    "affStatus": {
+      "requested": "Gaafatameera",
+      "active": "Hojii irra",
+      "ended": "Xumurameera",
+      "suspended": "Dhorkameera",
+      "rejected": "Dideameera"
+    },
+    "identity": {
+      "unverified": "Hin mirkanoofne",
+      "pending": "Mirkaneessi eegamaa jira",
+      "verified": "Eenyummaan mirkanaa'eera",
+      "disputed": "Falmii irra"
+    },
+    "register": {
+      "done": "Galmeen ergameera",
+      "doneBody": "Galmeessaan federeeshinii eenyummaa fi hirmaannaa ni mirkaneessa.",
+      "duplicatesFlagged": "{count, plural, one {Galmee lama ta'uu danda'u # galmeessaaf mallattoo godhameera} other {Galmeewwan lama ta'uu danda'an # galmeessaaf mallattoo godhamaniiru}}",
+      "viewRequest": "Gaaffii ilaali",
+      "another": "Nama biraa galmeessi",
+      "identity": "Eenyummaa",
+      "gcHint": "Guyyaa Gregorian",
+      "affiliation": "Hirmaannaa",
+      "scopeNote": "Namoota dhaabbilee isin itti ramadamtan qofa keessatti galmeessuu dandeessu."
+    },
+    "sex": {
+      "F": "Dhalaa",
+      "M": "Dhiira"
+    },
+    "person": {
+      "merged": "Galmee duraa waliin nama tokko jedhameera",
+      "profile": "Ibsa",
+      "masked": "Odeeffannoon tokko tokko gahee keessaniif dhokateera.",
+      "affiliations": "Gaheewwanii fi hirmaannaa",
+      "scopeNote": "Hirmaannaan guyyaa qaba, ispoortii tokkoon tokkoon adda.",
+      "requests": "Gaaffiiwwan",
+      "openDuplicate": "Galmee lama ta'uu danda'u murtii eegu"
+    },
+    "orgs": {
+      "allTypes": "Gosa hunda",
+      "allStatuses": "Haala hunda",
+      "submitted": "Beekamtiin gaafatameera",
+      "submittedBody": "Sekreteriyaatni federeeshinii ilaalee ni murteessa.",
+      "recognitionNote": "Beekamtiin federeeshiniin murtaa'a; sirnichi murtii galmeessa.",
+      "members": "Miseensota hojii irra jiran",
+      "children": "Dhaabbilee miseensaa"
+    },
+    "orgTypes": {
+      "bureau": "Biiroo",
+      "territorial_office": "Waajjira naannoo",
+      "federation": "Federeeshinii",
+      "club": "Kilaba",
+      "academy": "Akkaadaamii",
+      "school": "Mana barumsaa",
+      "university": "Yuunivarsiitii",
+      "facility_operator": "Hojjechiisaa dhaabbataa",
+      "national_body": "Qaama biyyoolessaa",
+      "partner": "Michuu"
+    },
+    "recognition": {
+      "unverified": "Hin mirkanoofne",
+      "pending": "Eegamaa jira",
+      "recognised": "Beekamtii qaba",
+      "suspended": "Dhorkameera",
+      "dissolved": "Diigameera",
+      "rejected": "Dideameera"
+    },
+    "duplicates": {
+      "score": "Walfakkeenya {score}%",
+      "signals": "Maqaa {name}% · Guyyaa dhalootaa: {dob} · Bilbila: {phone}",
+      "dob": {
+        "same": "tokko",
+        "near": "waggaa tokko keessa",
+        "different": "adda",
+        "unknown": "hin beekamu"
+      },
+      "same": "Nama tokko",
+      "different": "Namoota adda",
+      "hold": "Tursiisi",
+      "intro": "Sirnichi galmee lama ta'uu danda'an agarsiisa. Galmeessaan sababa waliin murteessa. Galmeewwan ofumaan gonkumaa hin makaman.",
+      "none": "Galmee lama ta'uu danda'u murteessuu hin jiru."
+    },
+    "users": {
+      "ended": "xumurame",
+      "revoke": "Haqi",
+      "mfa": "MFA banaa",
+      "create": "Fayyadamaa uumi",
+      "tempPassword": "Jecha icciitii yeroo",
+      "passwordRule": "Yoo xiqqaate qubee fi lakkoofsa qabu arfii 12. Nageenyaan qoodi.",
+      "role": "Gahee",
+      "regionWide": "Naannoo guutuu (dhaabbata malee)",
+      "created": "Fayyadamaan uumameera.",
+      "grantNote": "Gahee kan geheen keessan hayyamu qofa, daangaa keessan keessatti kennuu dandeessu."
+    },
+    "account": {
+      "title": "Herrega koo",
+      "password": "Jecha icciitii jijjiiri",
+      "current": "Jecha icciitii amma",
+      "new": "Jecha icciitii haaraa",
+      "rule": "Yoo xiqqaate qubee fi lakkoofsa qabu arfii 12.",
+      "changed": "Jechi icciitii jijjiirameera.",
+      "change": "Jecha icciitii jijjiiri",
+      "mfa": "Seensa tarkaanfii lamaa",
+      "mfaOn": "Seensi tarkaanfii lamaa banaadha",
+      "mfaStep1": "Furtuu kana appii mirkaneessaa irratti dabaladhaa, achiis koodii lakkoofsa 6 inni agarsiisu galchaa.",
+      "mfaOpenApp": "Appii mirkaneessaa keessatti bani",
+      "mfaCode": "Koodii lakkoofsa 6",
+      "mfaConfirm": "Bani",
+      "mfaIntro": "Herrega keessan koodii appii mirkaneessaa irraatiin eegaa.",
+      "mfaEnable": "Seensa tarkaanfii lamaa qopheessi"
+    },
+    "errors": {
+      "request_failed": "Rakkoon uumameera. Irra deebi'aa yaalaa.",
+      "not_authenticated": "Maaloo seenaa.",
+      "forbidden": "Kana argachuuf hayyama hin qabdan.",
+      "invalid_credentials": "Imeeliin ykn jechi icciitii dogoggora.",
+      "account_locked": "Yaaliin baay'ateera. Daqiiqaa 15 booda yaalaa.",
+      "totp_required": "Koodii yeroo tokkoo galchaa.",
+      "totp_invalid": "Koodiin yeroo tokkoo sirrii miti.",
+      "validation_failed": "Bakki tokko tokko hin guutamne ykn sirrii miti.",
+      "reason_required": "Sababni barbaachisaadha.",
+      "cannot_act_on_step": "Gaaffii kana murteessuu hin dandeessan.",
+      "only_submitter": "Nama erge qofatu kana gochuu danda'a.",
+      "invalid_state": "Gaaffiin kun haala amma keessa jirutti jijjiiramuu hin danda'u.",
+      "duplicate_unresolved": "Dursa galmeen lama ta'uu danda'u murtaa'uu qaba.",
+      "person_merged_reject_registration": "Namni kun duraan galmaa'eera jedhameera. Gaaffii kana didaa.",
+      "affiliation_overlap": "Hirmaannaan hojii irra jiru ispoortii kana keessatti guyyoota kana dursee qabateera.",
+      "organisation_not_recognised": "Dhaabbatichi ammallee beekamtii hin arganne.",
+      "sport_not_offered_by_organisation": "Dhaabbatichi ispoortii sana hin qabu.",
+      "no_federation_for_sport": "Ispoortii sanaaf federeeshiniin hin qophoofne.",
+      "email_taken": "Fayyadamaan imeelii sana qabu duraan jira.",
+      "weak_password": "Jechi icciitii seerota hin guutu.",
+      "cannot_grant_role": "Gahee sana daangaa sana keessatti kennuu hin dandeessan.",
+      "invalid_current_password": "Jechi icciitii amma dogoggora.",
+      "already_decided": "Kun duraan murtaa'eera.",
+      "not_found": "Hin argamne.",
+      "cannot_revoke_own_assignment": "Gahee ofii keessanii haquu hin dandeessan."
     }
   }
 }

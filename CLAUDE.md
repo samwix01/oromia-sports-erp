@@ -31,8 +31,8 @@ federation workspaces, and a foundation that any recognised sport can join.
 
 - Monorepo: **pnpm workspaces + Turborepo**, TypeScript everywhere (strict mode).
 - API: **NestJS** modular monolith, REST + OpenAPI, Zod for validation (`nestjs-zod`).
-- DB: **PostgreSQL 16 + PostGIS**, **Drizzle ORM** + SQL migrations, Row-Level Security for scope isolation.
-- Jobs: **Redis + BullMQ**. Files: **S3-compatible** (SeaweedFS locally; any S3 service in production). Identity: **Keycloak** (OIDC, MFA).
+- DB: **PostgreSQL 16 + PostGIS**, SQL-first (`db/migrations/*.sql`, parameterised `pg` queries), scope enforced in services (RLS next).
+- Jobs: **Redis + BullMQ**. Files: **S3-compatible** (SeaweedFS locally; any S3 service in production). Identity: **built-in** (scrypt + TOTP + server sessions; Keycloak/OIDC later, ADR-05).
 - Web: **Next.js (App Router)** + Tailwind + shadcn/ui, **next-intl** (om, am, en). PWA + IndexedDB for offline capture.
 - Tests: Vitest (unit), Testcontainers (integration), Playwright (e2e).
 
