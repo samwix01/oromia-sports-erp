@@ -27,14 +27,29 @@ Mapping to the proposal's roadmap:
 - [x] **M0-T05 Ethiopian calendar package.** EC↔GC conversion, formatting in om/am/en, fiscal year helpers (configurable start). *AC:* property tests round-trip 1900–2100 GC; known fixtures (e.g. Meskerem 1 / Enkutatash dates, leap Pagume 6) pass.
 - [x] **M0-T06 Clickable prototype.** Static screens with **fictional** data for: command centre, federation workspace home (×4), Athlete 360, Club 360, entry review, result entry (football + athletics), plan approval inbox. Banner: "Illustrative — no live Oromia data". *AC:* navigable in browser; used in assessment workshops.
 
+## Release 1 status (2026-11-02)
+
+Built and tested (14 integration tests on Postgres 16): built-in login with lockout and TOTP (ADR-05 revised),
+role templates with org × sport × territory scope, hash-chained append-only audit, workflow engine
+(submit / approve / return / reject / resubmit / withdraw, maker ≠ checker), organisations with recognition
+workflow, people registry with dated sport-scoped affiliations, masking and duplicate flagging, user
+administration, live command centre, ERP screens in om/am/en.
+
+Still open from M1–M3 (carried into Release 2): RLS policies (M1-T04), automatic audit coverage meta-test
+(M1-T05), documents/S3 (M1-T07), workflow SLA → action items and version diff (M1-T08), notifications
+(M1-T09), delegation and access-review report (M1-T10), committees/office terms/signatories (M2-T01),
+discipline sections (M2-T02), affiliation change/transfer workflow (M2-T04), reversible merge (M2-T05),
+external IDs and correction requests (M2-T06), qualifications (M2-T07), imports (M2-T09), and all of M3
+except the first command-centre indicators.
+
 ## M1 — Platform core
 
 - [ ] **M1-T01 DB foundation.** Drizzle setup, schema-per-module, uuid v7, base columns, migration runner, `core.outbox`, `audit.event` with hash chain + INSERT-only grant. *Refs:* 03 §15. *AC:* attempt to UPDATE/DELETE audit rows fails; chain verifier detects tampering in test.
 - [ ] **M1-T02 Auth & ActorContext.** Keycloak OIDC in web + API JWT guard; `iam.user_account` auto-link; ActorContext loads assignments; MFA enforced for privileged roles (Keycloak policy). *AC:* e2e login; privileged user without MFA is blocked.
-- [ ] **M1-T03 Permission registry & `@RequirePermission`.** Static registry of permissions per module; role templates seeded from 04 §1; scope resolution (org descendants, territory descendants, sport). *AC:* unit matrix tests for every seeded role × 10 representative permissions.
+- [x] **M1-T03 Permission registry & `@RequirePermission`.** Static registry of permissions per module; role templates seeded from 04 §1; scope resolution (org descendants, territory descendants, sport). *AC:* unit matrix tests for every seeded role × 10 representative permissions.
 - [ ] **M1-T04 RLS plumbing.** Transaction interceptor sets `app.*` settings; RLS policy helpers; template policies. *AC:* integration tests — Football registrar cannot read Athletics affiliation rows **even via raw SQL in the request transaction**.
 - [ ] **M1-T05 Audit interceptor.** Auto-audit mutations with before/after (redacted per classification) and `read_sensitive` reads. *AC:* every controller mutation in the codebase is covered (meta-test scans routes).
-- [ ] **M1-T06 Territories & reference data.** `territories`, `ref.sport/discipline/category/rule_set` tables + admin APIs; seed fictional territories + the 4 sports. *AC:* tree API returns nested hierarchy; rule set config validated by plugin schema stub.
+- [x] **M1-T06 Territories & reference data.** `territories`, `ref.sport/discipline/category/rule_set` tables + admin APIs; seed fictional territories + the 4 sports. *AC:* tree API returns nested hierarchy; rule set config validated by plugin schema stub.
 - [ ] **M1-T07 Documents.** S3 storage integration, presigned upload/download, versions, SHA-256, ClamAV scan job, classification. *AC:* infected test file quarantined; download of confidential doc audited.
 - [ ] **M1-T08 Workflow engine.** Definitions, submissions, versions, step log, guards registry, segregation-of-duties, return/resubmit with diff, SLA job → action items. *Refs:* 05 §1–3. *AC:* generic test workflow passes all transitions; same actor cannot submit & approve; return without reason rejected.
 - [ ] **M1-T09 Notifications.** In-app + email (mailhog) + SMS adapter interface (console driver in dev); i18n templates. *AC:* workflow return triggers in-app + email to submitter in their locale.
