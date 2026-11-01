@@ -4,18 +4,17 @@ import type { AppConfig } from '../config.js';
 
 export type ProbeName = 'database' | 'redis' | 'objectStorage' | 'identity';
 export type Probe = () => Promise<void>;
-export type Probes = Record<ProbeName, Probe>;
+export type Probes = Partial<Record<ProbeName, Probe>>;
 export const HEALTH_PROBES = Symbol('HEALTH_PROBES');
 
-async function httpOk(url: string, timeoutMs: number): Promise<void> {
-  const res = await fetch(url, { signal: AbortSignal.timeout(timeoutMs) });
-  if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-}
-
 export function createProbes(cfg: AppConfig): Probes {
-  return {
+  const probes: Probes = {
     database: async () => {
-      const client = new pg.Client({ connectionString: cfg.databaseUrl, connectionTimeoutMillis: cfg.probeTimeoutMs });
+      const client = new pg.Client({
+        connectionString: cfg.databaseUrl,
+        connectionTimeoutMillis: cfg.probeTimeoutMs,
+        ssl: cfg.databaseSsl ? { rejectUnauthorized: false } : undefined,
+      });
       try {
         await client.connect();
         await client.query('SELECT 1');
@@ -23,8 +22,11 @@ export function createProbes(cfg: AppConfig): Probes {
         await client.end().catch(() => undefined);
       }
     },
-    redis: async () => {
-      const redis = new Redis(cfg.redisUrl, { lazyConnect: true, connectTimeout: cfg.probeTimeoutMs, maxRetriesPerRequest: 0 });
+  };
+  const redisUrl = cfg.redisUrl;
+  if (redisUrl) {
+    probes.redis = async () => {
+      const redis = new Redis(redisUrl, { lazyConnect: true, connectTimeout: cfg.probeTimeoutMs, maxRetriesPerRequest: 0 });
       try {
         await redis.connect();
         const pong = await redis.ping();
@@ -32,13 +34,16 @@ export function createProbes(cfg: AppConfig): Probes {
       } finally {
         redis.disconnect();
       }
-    },
-    // Any S3-compatible service: an HTTP answer below 500 (an anonymous GET is usually 403) means it is up.
-    objectStorage: async () => {
-      const res = await fetch(cfg.objectStorageUrl, { signal: AbortSignal.timeout(cfg.probeTimeoutMs) });
-      if (res.status >= 500) throw new Error(`HTTP ${res.status} from ${cfg.objectStorageUrl}`);
-    },
-    identity: () =>
-      httpOk(`${cfg.keycloakUrl}/realms/${cfg.keycloakRealm}/.well-known/openid-configuration`, cfg.probeTimeoutMs),
-  };
+    };
+  }
+  const s3 = cfg.objectStorageUrl;
+  if (s3) {
+    // Any S3-compatible service: an HTTP answer below 500 (anonymous GET is usually 403) means it is up.
+    probes.objectStorage = async () => {
+      const res = await fetch(s3, { signal: AbortSignal.timeout(cfg.probeTimeoutMs) });
+      if (res.status >= 500) throw new Error(`HTTP ${res.status} from ${s3}`);
+    };
+  }
+  // Identity is built into the API in Release 1 (ADR-05 revised), so there is no external probe.
+  return probes;
 }

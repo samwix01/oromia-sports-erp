@@ -8,12 +8,14 @@ async function bootstrap() {
   const cfg = loadConfig();
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api/v1');
+  // Behind Render's proxy: trust X-Forwarded-* for client IPs and protocol.
+  app.getHttpAdapter().getInstance().set('trust proxy', 1);
   app.enableShutdownHooks();
 
   const doc = new DocumentBuilder()
     .setTitle('Oromia Digital Sports Hub API')
     .setVersion(cfg.version)
-    .addBearerAuth()
+    .addCookieAuth('osh_session')
     .build();
   SwaggerModule.setup('api/docs', app, SwaggerModule.createDocument(app, doc));
 

@@ -49,8 +49,17 @@ pnpm dev               # API on :4000 (docs at /api/docs), web on :3000
 - Web: http://localhost:3000 — Afaan Oromo by default; switch language, workspace and Ethiopian/Gregorian calendar in the header
 - Keycloak admin: http://localhost:8080 (admin / admin, local only)  · S3 endpoint: http://localhost:8333 · MailHog: http://localhost:8025
 
-## Demo deployment (Render)
+## Deployment (Render)
 
-The clickable prototype (fictional data only) deploys to Render as a static site from `render.yaml`:
-Render dashboard → **New → Blueprint** → choose this repository. Every push to `main` redeploys.
-To build it locally: `pnpm --filter @oromia/web build:demo` (output in `apps/web/out`).
+`render.yaml` defines four resources (Render dashboard → **Blueprints** → sync):
+
+| Resource | What it is |
+|---|---|
+| `oromia-sports-db` | Postgres 16 (internal access only) |
+| `oromia-sports-api` | NestJS API. On start it applies migrations and loads **fictional** demo data |
+| `oromia-sports-web` | Next.js app: sign-in at `/om/login`, the ERP at `/om/erp` |
+| `oromia-sports-demo` | Static workshop prototype (nothing saved) |
+
+**Test data only** until hosting is decided (OD-01). Demo sign-ins (`*@demo.osh.test`, see
+`apps/api/src/db/seed.ts`) all use the generated `SEED_PASSWORD` shown under
+*oromia-sports-api → Environment*. Change or remove them before any real use.

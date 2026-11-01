@@ -1,6 +1,71 @@
-# Render Blueprint: the clickable prototype (FICTIONAL data only) as a static site.
-# No server, database or secrets: everything is built into apps/web/out.
+# Render Blueprint.
+# - oromia-sports-web + oromia-sports-api + oromia-sports-db: the working system (TEST DATA ONLY until
+#   hosting is decided, OD-01). The API migrates the database and loads fictional demo data on start.
+#   Demo users all use the generated SEED_PASSWORD (Render dashboard → oromia-sports-api → Environment).
+# - oromia-sports-demo: the static workshop prototype (fictional data, nothing saved).
+databases:
+  - name: oromia-sports-db
+    plan: basic-256mb
+    region: frankfurt
+    databaseName: oromia_sports
+    user: oromia
+    postgresMajorVersion: "16"
+    ipAllowList: []
+
 services:
+  - type: web
+    name: oromia-sports-api
+    runtime: node
+    plan: starter
+    region: frankfurt
+    branch: main
+    autoDeploy: true
+    buildCommand: >-
+      corepack enable &&
+      pnpm install --no-frozen-lockfile &&
+      pnpm --filter "@oromia/api..." build
+    startCommand: >-
+      node apps/api/dist/db/migrate.js &&
+      node apps/api/dist/db/seed.js &&
+      node apps/api/dist/main.js
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: oromia-sports-db
+          property: connectionString
+      - key: SEED_PASSWORD
+        generateValue: true
+      - key: SESSION_TTL_HOURS
+        value: "8"
+
+  - type: web
+    name: oromia-sports-web
+    runtime: node
+    plan: starter
+    region: frankfurt
+    branch: main
+    autoDeploy: true
+    buildCommand: >-
+      corepack enable &&
+      pnpm install --no-frozen-lockfile &&
+      pnpm --filter "@oromia/web..." build
+    startCommand: pnpm --filter @oromia/web start
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: API_HOSTPORT
+        fromService:
+          type: web
+          name: oromia-sports-api
+          property: hostport
+
   - type: web
     name: oromia-sports-demo
     runtime: static

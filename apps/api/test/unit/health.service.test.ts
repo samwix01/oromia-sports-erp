@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { loadConfig } from '../src/config.js';
-import { HealthService } from '../src/health/health.service.js';
-import type { Probes } from '../src/health/probes.js';
+import { loadConfig } from '../../src/config.js';
+import { HealthService } from '../../src/health/health.service.js';
+import type { Probes } from '../../src/health/probes.js';
 
 const ok = async () => undefined;
 const cfg = { ...loadConfig({}), version: 'test' };

@@ -14,8 +14,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section>
         <h1 className="text-2xl font-semibold">{t('home.title')}</h1>
         <p className="mt-2 max-w-2xl text-muted-foreground">{t('home.intro')}</p>
+        <Link href="/login" className="mt-4 inline-block rounded-lg bg-primary px-4 py-2 text-primary-foreground">
+          {t('shell.signIn')}
+        </Link>
       </section>
 
+      <h2 className="text-lg font-semibold">{t('home.prototypeHeading')}</h2>
       <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
         {WORKSPACES.map((w) => (
           <Link key={w} href={`/${w}`} className="rounded-lg border border-border p-4 hover:bg-muted">
