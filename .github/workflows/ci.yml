@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: pnpm
+          # Add `cache: pnpm` once pnpm-lock.yaml is committed (setup-node requires the lockfile).
       # No lockfile is committed yet (first install happens in CI). Once pnpm-lock.yaml
       # is committed, switch this to --frozen-lockfile.
       - run: pnpm install --no-frozen-lockfile
@@ -47,10 +47,5 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: aquasecurity/trivy-action@0.28.0
-        with:
-          scan-type: fs
-          scan-ref: .
-          severity: CRITICAL,HIGH
-          ignore-unfixed: true
-          exit-code: '0'
+      - name: Trivy filesystem scan (report only)
+        run: docker run --rm -v "$PWD:/src" aquasec/trivy:0.58.1 fs --severity CRITICAL,HIGH --ignore-unfixed --exit-code 0 /src
