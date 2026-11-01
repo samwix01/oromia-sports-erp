@@ -1,0 +1,41 @@
+{
+  "app": {
+    "name": "የኦሮሚያ ዲጂታል ስፖርት ማዕከል",
+    "tagline": "አንድ ክልላዊ ሥርዓት። ለእያንዳንዱ ዕውቅና ላለው ስፖርት መሠረት።",
+    "illustrative": "ለማሳያ ብቻ — ትክክለኛ የኦሮሚያ መረጃ አይደለም"
+  },
+  "shell": {
+    "workspace": "የሥራ ቦታ",
+    "language": "ቋንቋ",
+    "calendar": "የቀን አቆጣጠር",
+    "calendarEthiopian": "ኢትዮጵያ",
+    "calendarGregorian": "ግሪጎሪያን",
+    "today": "ዛሬ",
+    "online": "በመስመር ላይ",
+    "offline": "ከመስመር ውጭ — ግንኙነት ሲመለስ ለውጦች ይመሳሰላሉ",
+    "pendingSync": "{count, plural, =0 {የሚመሳሰል የለም} one {# ለውጥ ለማመሳሰል በመጠባበቅ ላይ} other {# ለውጦች ለማመሳሰል በመጠባበቅ ላይ}}",
+    "signIn": "ግባ",
+    "menu": "ማውጫ"
+  },
+  "workspaces": {
+    "bureau": "የባህልና ስፖርት ቢሮ",
+    "football": "የኦሮሚያ እግር ኳስ ፌዴሬሽን",
+    "athletics": "የኦሮሚያ አትሌቲክስ ፌዴሬሽን",
+    "volleyball": "የኦሮሚያ ቮሊቦል ፌዴሬሽን",
+    "cycling": "የኦሮሚያ ብስክሌት ፌዴሬሽን"
+  },
+  "pillars": {
+    "governance": "ዲጂታል ቢሮና ፌዴሬሽኖች",
+    "operations": "የስፖርት ሥራዎች",
+    "development": "የስፖርት ልማት",
+    "facilities": "ዲጂታል የስፖርት ተቋማት",
+    "intelligence": "የስፖርት መረጃ ትንተና"
+  },
+  "home": {
+    "title": "እንኳን ደህና መጡ",
+    "intro": "ለመጀመር የሥራ ቦታ ይምረጡ። የሚያዩዋቸው መዝገቦች፣ ማጽደቂያዎችና ሪፖርቶች በሚናዎ፣ በድርጅትዎ፣ በስፖርቱና በአካባቢዎ ይወሰናሉ።",
+    "pillarsHeading": "አምስቱ ምሰሶዎች",
+    "noData": "ሪፖርት አልደረሰም"
+  },
+  "languages": { "om": "Afaan Oromoo", "am": "አማርኛ", "en": "English" }
+}

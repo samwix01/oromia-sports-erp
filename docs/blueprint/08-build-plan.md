@@ -20,11 +20,11 @@ Mapping to the proposal's roadmap:
 
 ## M0 — Scaffold & prototype
 
-- [ ] **M0-T01 Monorepo scaffold.** pnpm + Turborepo; apps `api`, `web`, `public-portal`, `worker`; packages per 02 §2; strict tsconfig; ESLint (incl. `eslint-plugin-boundaries`), Prettier; Husky + commitlint. *AC:* `pnpm lint typecheck test` green on empty apps; boundaries rule fails on an illegal cross-module import (add a test fixture).
-- [ ] **M0-T02 Local infra.** `infra/docker-compose.yml`: postgres16+postgis, redis, minio, keycloak (realm import), mailhog. `pnpm dev` brings everything up. *AC:* health endpoint reports db/redis/minio/keycloak OK.
-- [ ] **M0-T03 CI.** GitHub Actions: install, lint, typecheck, unit, integration (Testcontainers), build images, Trivy scan. *AC:* PR pipeline < 15 min.
-- [ ] **M0-T04 Design system & shell.** Tailwind + shadcn/ui in `packages/ui`; app shell with workspace switcher (Bureau / Football / Athletics / Volleyball / Cycling), language switcher (om/am/en), calendar toggle (EC/GC), connection-status indicator. Noto Sans Ethiopic. *AC:* switching locale changes all shell strings; no hard-coded strings (lint rule for JSX literals).
-- [ ] **M0-T05 Ethiopian calendar package.** EC↔GC conversion, formatting in om/am/en, fiscal year helpers (configurable start). *AC:* property tests round-trip 1900–2100 GC; known fixtures (e.g. Meskerem 1 / Enkutatash dates, leap Pagume 6) pass.
+- [x] **M0-T01 Monorepo scaffold.** pnpm + Turborepo; apps `api`, `web`, `public-portal`, `worker`; packages per 02 §2; strict tsconfig; ESLint (incl. `eslint-plugin-boundaries`), Prettier; Husky + commitlint. *AC:* `pnpm lint typecheck test` green on empty apps; boundaries rule fails on an illegal cross-module import (add a test fixture).
+- [x] **M0-T02 Local infra.** `infra/docker-compose.yml`: postgres16+postgis, redis, S3-compatible storage, keycloak (realm import), mailhog. `pnpm dev` brings everything up. *AC:* health endpoint reports db/redis/object storage/keycloak OK.
+- [x] **M0-T03 CI.** GitHub Actions: install, lint, typecheck, unit, integration (Testcontainers), build images, Trivy scan. *AC:* PR pipeline < 15 min.
+- [ ] **M0-T04 Design system & shell.** _(Built and lint-enforced; stays open until a Playwright test proves locale switching — added with M0-T06.)_ Tailwind + shadcn/ui in `packages/ui`; app shell with workspace switcher (Bureau / Football / Athletics / Volleyball / Cycling), language switcher (om/am/en), calendar toggle (EC/GC), connection-status indicator. Noto Sans Ethiopic. *AC:* switching locale changes all shell strings; no hard-coded strings (lint rule for JSX literals).
+- [x] **M0-T05 Ethiopian calendar package.** EC↔GC conversion, formatting in om/am/en, fiscal year helpers (configurable start). *AC:* property tests round-trip 1900–2100 GC; known fixtures (e.g. Meskerem 1 / Enkutatash dates, leap Pagume 6) pass.
 - [ ] **M0-T06 Clickable prototype.** Static screens with **fictional** data for: command centre, federation workspace home (×4), Athlete 360, Club 360, entry review, result entry (football + athletics), plan approval inbox. Banner: "Illustrative — no live Oromia data". *AC:* navigable in browser; used in assessment workshops.
 
 ## M1 — Platform core
@@ -35,7 +35,7 @@ Mapping to the proposal's roadmap:
 - [ ] **M1-T04 RLS plumbing.** Transaction interceptor sets `app.*` settings; RLS policy helpers; template policies. *AC:* integration tests — Football registrar cannot read Athletics affiliation rows **even via raw SQL in the request transaction**.
 - [ ] **M1-T05 Audit interceptor.** Auto-audit mutations with before/after (redacted per classification) and `read_sensitive` reads. *AC:* every controller mutation in the codebase is covered (meta-test scans routes).
 - [ ] **M1-T06 Territories & reference data.** `territories`, `ref.sport/discipline/category/rule_set` tables + admin APIs; seed fictional territories + the 4 sports. *AC:* tree API returns nested hierarchy; rule set config validated by plugin schema stub.
-- [ ] **M1-T07 Documents.** MinIO integration, presigned upload/download, versions, SHA-256, ClamAV scan job, classification. *AC:* infected test file quarantined; download of confidential doc audited.
+- [ ] **M1-T07 Documents.** S3 storage integration, presigned upload/download, versions, SHA-256, ClamAV scan job, classification. *AC:* infected test file quarantined; download of confidential doc audited.
 - [ ] **M1-T08 Workflow engine.** Definitions, submissions, versions, step log, guards registry, segregation-of-duties, return/resubmit with diff, SLA job → action items. *Refs:* 05 §1–3. *AC:* generic test workflow passes all transitions; same actor cannot submit & approve; return without reason rejected.
 - [ ] **M1-T09 Notifications.** In-app + email (mailhog) + SMS adapter interface (console driver in dev); i18n templates. *AC:* workflow return triggers in-app + email to submitter in their locale.
 - [ ] **M1-T10 Users & role assignment UI.** Invite, assign with scope picker, delegation, access-review report. *AC:* club admin can invite users only into their club with ≤ their roles.

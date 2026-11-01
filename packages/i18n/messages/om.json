@@ -1,0 +1,41 @@
+{
+  "app": {
+    "name": "Giddugala Ispoortii Dijitaalaa Oromiyaa",
+    "tagline": "Sirna naannoo tokko. Bu'uura ispoortii beekamaa hundaaf.",
+    "illustrative": "Fakkeenyaaf qofa — ragaa Oromiyaa dhugaa miti"
+  },
+  "shell": {
+    "workspace": "Bakka hojii",
+    "language": "Afaan",
+    "calendar": "Dhaha",
+    "calendarEthiopian": "Itoophiyaa",
+    "calendarGregorian": "Galaana (Gregorian)",
+    "today": "Har'a",
+    "online": "Toora irra",
+    "offline": "Toora ala — jijjiiramni yeroo walqunnamtiin deebi'u ni walsimata",
+    "pendingSync": "{count, plural, =0 {Wanti walsimachuu qabu hin jiru} one {Jijjiirama # walsimachuuf eeggachaa jira} other {Jijjiiramoota # walsimachuuf eeggachaa jiru}}",
+    "signIn": "Seeni",
+    "menu": "Baafata"
+  },
+  "workspaces": {
+    "bureau": "Biiroo Aadaa fi Ispoortii",
+    "football": "Federeeshinii Kubbaa Miilaa Oromiyaa",
+    "athletics": "Federeeshinii Atleetiksii Oromiyaa",
+    "volleyball": "Federeeshinii Kubbaa Harkaa Oromiyaa",
+    "cycling": "Federeeshinii Saayikilii Oromiyaa"
+  },
+  "pillars": {
+    "governance": "Biiroo fi Federeeshinoota Dijitaalaa",
+    "operations": "Hojii Ispoortii",
+    "development": "Guddina Ispoortii",
+    "facilities": "Dhaabbilee Ispoortii Dijitaalaa",
+    "intelligence": "Odeeffannoo Ispoortii"
+  },
+  "home": {
+    "title": "Baga nagaan dhuftan",
+    "intro": "Jalqabuuf bakka hojii filadhaa. Galmeewwan, raggaasisaa fi gabaasni isin argitan gahee, dhaabbata, ispoortii fi naannoo keessan irratti hundaa'a.",
+    "pillarsHeading": "Utubaalee shan",
+    "noData": "Gabaasni hin dhufne"
+  },
+  "languages": { "om": "Afaan Oromoo", "am": "አማርኛ", "en": "English" }
+}

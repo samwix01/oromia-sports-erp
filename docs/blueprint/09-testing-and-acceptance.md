@@ -6,7 +6,7 @@
 |---|---|---|
 | Unit | Vitest | Plugins (pure), eligibility rules, calendar, workflow transitions, masking serialisers |
 | Contract | Zod + OpenAPI diff | Breaking API changes fail CI |
-| Integration | Vitest + Testcontainers (Postgres/PostGIS, Redis, MinIO) | Services + DB + RLS + triggers + jobs |
+| Integration | Vitest + Testcontainers (Postgres/PostGIS, Redis, S3 storage) | Services + DB + RLS + triggers + jobs |
 | Permission matrix | Generated tests | Every seeded role × every permission × in-scope / out-of-scope record |
 | E2E | Playwright | Acceptance scenarios below, run in om and en |
 | Load | k6 | 02 §10 targets |

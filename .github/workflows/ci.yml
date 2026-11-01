@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          # Add `cache: pnpm` once pnpm-lock.yaml is committed (setup-node requires the lockfile).
+      # No lockfile is committed yet (first install happens in CI). Once pnpm-lock.yaml
+      # is committed, switch this to --frozen-lockfile.
+      - run: pnpm install --no-frozen-lockfile
+      - name: Module boundaries + i18n parity
+        run: node tools/check-boundaries.mjs && node packages/i18n/check-catalogues.mjs
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build
+
+  infra-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Start local stack
+        run: docker compose -f infra/docker-compose.yml up -d --wait postgres redis objectstore
+      - name: Create buckets
+        run: docker compose -f infra/docker-compose.yml run --rm objectstore-buckets
+      - name: Check extensions
+        run: docker compose -f infra/docker-compose.yml exec -T postgres psql -U oromia -d oromia_sports -c "SELECT extname FROM pg_extension ORDER BY 1;"
+      - name: Start Keycloak
+        run: docker compose -f infra/docker-compose.yml up -d keycloak
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - run: pnpm install --no-frozen-lockfile
+      - run: pnpm --filter @oromia/api... build
+      - name: API health reports every dependency OK (M0-T02)
+        env:
+          S3_ENDPOINT: http://localhost:8333
+        run: |
+          node apps/api/dist/main.js > api.log 2>&1 &
+          for i in $(seq 1 60); do
+            code=$(curl -s -o health.json -w '%{http_code}' http://localhost:4000/api/v1/health || true)
+            [ "$code" = "200" ] && break
+            sleep 5
+          done
+          cat health.json; echo
+          [ "$code" = "200" ] || { echo "health returned $code"; cat api.log; exit 1; }
+      - if: failure()
+        run: docker compose -f infra/docker-compose.yml logs --tail=80
+      - if: always()
+        run: docker compose -f infra/docker-compose.yml down -v
+
+  image-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Trivy filesystem scan (report only)
+        run: docker run --rm -v "$PWD:/src" aquasec/trivy:0.58.1 fs --severity CRITICAL,HIGH --ignore-unfixed --exit-code 0 /src

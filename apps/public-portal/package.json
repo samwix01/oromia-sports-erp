@@ -1,0 +1,6 @@
+{
+  "name": "@oromia/public-portal",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": { "lint": "echo 'public portal starts in M3-T07'" }
+}

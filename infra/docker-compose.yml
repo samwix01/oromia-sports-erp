@@ -1,0 +1,71 @@
+# Local development only. Credentials below are throwaway dev defaults — never reuse them elsewhere.
+name: oromia-sports
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_USER: oromia
+      POSTGRES_PASSWORD: oromia
+      POSTGRES_DB: oromia_sports
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data, ./postgres/init.sql:/docker-entrypoint-initdb.d/00-init.sql:ro]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U oromia -d oromia_sports"]
+      interval: 5s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 20
+
+  # S3-compatible object storage. MinIO no longer publishes public container images, so local dev uses
+  # SeaweedFS's S3 gateway. Production storage is any S3-compatible service (ADR-07, OD-01).
+  objectstore:
+    image: chrislusf/seaweedfs:3.80
+    command: server -ip=localhost -ip.bind=0.0.0.0 -dir=/data -s3 -s3.port=8333 -s3.config=/etc/seaweedfs/s3.json
+    ports: ["8333:8333"]
+    volumes: [objdata:/data, ./objectstore/s3.json:/etc/seaweedfs/s3.json:ro]
+    healthcheck:
+      # S3 gateway listening and the master reporting cluster status.
+      test: ["CMD-SHELL", "nc -z localhost 8333 && wget -q -O /dev/null http://localhost:9333/cluster/status"]
+      interval: 5s
+      start_period: 20s
+      retries: 30
+
+  objectstore-buckets:
+    image: amazon/aws-cli:2.22.0
+    depends_on: { objectstore: { condition: service_healthy } }
+    environment:
+      AWS_ACCESS_KEY_ID: oromia-dev
+      AWS_SECRET_ACCESS_KEY: oromia-dev-secret
+      AWS_DEFAULT_REGION: us-east-1
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        set -e
+        S3="aws --endpoint-url http://objectstore:8333 s3api"
+        for b in documents imports public; do $$S3 create-bucket --bucket $$b || true; done
+        $$S3 create-bucket --bucket evidence --object-lock-enabled-for-bucket || $$S3 create-bucket --bucket evidence || true
+        $$S3 put-bucket-versioning --bucket documents --versioning-configuration Status=Enabled || true
+        $$S3 list-buckets
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0
+    command: start-dev --import-realm --health-enabled=true
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+    ports: ["8080:8080"]
+    volumes: [./keycloak:/opt/keycloak/data/import:ro]
+
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    ports: ["1025:1025", "8025:8025"]
+
+volumes:
+  pgdata:
+  objdata:

@@ -12,7 +12,7 @@ The proposal asks for: *"a modular application with clear business-domain bounda
 | ADR-04 | **Row-Level Security** as a second line of defence behind app-level permission checks | Federation/organisation separation must survive an app bug | — |
 | ADR-05 | **Keycloak** for identity (OIDC, MFA, SMS/OTP) | Self-hostable — hosting may need to be in-country (OD-01) | A national SSO becomes mandatory |
 | ADR-06 | **Reporting schema with materialised views**, refreshed by jobs | "Separate reporting model" without new infra in phase 1; can move to a warehouse later | Analytical load hurts OLTP |
-| ADR-07 | **S3-compatible object storage (MinIO)** for documents/evidence | Portable on-prem or cloud; versioning + object lock for evidence | — |
+| ADR-07 | **S3-compatible object storage** for documents/evidence (SeaweedFS in local dev; MinIO stopped publishing public images in 2025) | Portable on-prem or cloud; versioning + object lock for evidence | Production provider chosen (OD-01) |
 | ADR-08 | **Sport plugins** behind a typed contract | Shared model, separate technical rules (proposal's core principle) | — |
 | ADR-09 | **Container deployment** (Docker Compose for pilot, Kubernetes-ready Helm later) | Hosting undecided; keep portable | — |
 | ADR-10 | **PWA + IndexedDB** offline capture for attendance, results, accreditation scans | Connectivity at venues/routes is unreliable; offline status must be visible | Native app is required |
@@ -68,7 +68,7 @@ oromia-sports-erp/
 │  ├─ i18n/                      ← message catalogues: om (Afaan Oromo), am, en
 │  └─ config/                    ← eslint, tsconfig, prettier
 ├─ infra/
-│  ├─ docker-compose.yml         ← postgres+postgis, redis, minio, keycloak, mailhog
+│  ├─ docker-compose.yml         ← postgres+postgis, redis, S3 storage, keycloak, mailhog
 │  ├─ keycloak/realm-export.json
 │  ├─ helm/                      ← later
 │  └─ backup/                    ← pgBackRest config + restore drill script
@@ -101,7 +101,7 @@ HTTP → Keycloak JWT validation → load ActorContext (user, role assignments, 
 |---|---|---|
 | OLTP | PostgreSQL (schemas per module) | RLS on all tables carrying `org_id`/`sport_id`/`territory_id` |
 | Restricted | PostgreSQL `restricted` schema, separate DB role | Column encryption (pgcrypto) for case notes; separate audit stream |
-| Documents/evidence | MinIO buckets: `documents`, `evidence` (object lock), `imports`, `public` | SHA-256 hash stored in DB; presigned URLs, short TTL |
+| Documents/evidence | S3 buckets: `documents`, `evidence` (object lock), `imports`, `public` | SHA-256 hash stored in DB; presigned URLs, short TTL |
 | Reporting | `reporting` schema: facts, dimensions, materialised views | Refreshed nightly + on-demand; each MV row carries `as_of`, `source`, `coverage` |
 | Search | Postgres full-text + trigram (`pg_trgm`) | Also used for duplicate-person matching |
 | Cache/queues | Redis | BullMQ queues: `imports`, `notifications`, `reporting`, `integration`, `outbox` |
@@ -142,7 +142,7 @@ Used for: session attendance, match/meet result entry, accreditation gate scans,
 
 - CI (GitHub Actions): lint, typecheck, unit, integration (Testcontainers), e2e (Playwright vs compose), OpenAPI diff, migration check, dependency audit, container image scan.
 - Observability: OpenTelemetry → Prometheus/Grafana + Loki; health endpoints; uptime alerts.
-- Backups: pgBackRest (full weekly, diff daily, WAL archiving), MinIO bucket replication. **Restore drill is an acceptance gate** (script in `infra/backup/restore-drill.sh`, results logged).
+- Backups: pgBackRest (full weekly, diff daily, WAL archiving), object-storage bucket replication. **Restore drill is an acceptance gate** (script in `infra/backup/restore-drill.sh`, results logged).
 - RPO/RTO: placeholders 24h/8h until agreed (OD-02).
 
 ## 10. Performance assumptions (pilot)
