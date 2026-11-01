@@ -37,5 +37,231 @@
     "pillarsHeading": "Utubaalee shan",
     "noData": "Gabaasni hin dhufne"
   },
-  "languages": { "om": "Afaan Oromoo", "am": "አማርኛ", "en": "English" }
+  "languages": {
+    "om": "Afaan Oromoo",
+    "am": "አማርኛ",
+    "en": "English"
+  },
+  "proto": {
+    "nav": {
+      "home": "Fuula jalqabaa",
+      "commandCentre": "Giddugala ajajaa",
+      "plans": "Karoorota eegaa jiran",
+      "clubs": "Kilaboota",
+      "athletes": "Namoota",
+      "entries": "Galmee dorgommii",
+      "results": "Bu'aa"
+    },
+    "demoTag": "Fakkeenya",
+    "notSaved": "Fakkii: jijjiiramni fuula kana qofa irra tura, hin olkaa'amu.",
+    "common": {
+      "status": "Haala",
+      "actions": "Gochaalee",
+      "reason": "Sababa",
+      "reasonRequired": "Sababni barbaachisaadha.",
+      "approve": "Raggaasisi",
+      "return": "Deebisi",
+      "submit": "Ergi",
+      "validate": "Mirkaneessi",
+      "publish": "Maxxansi",
+      "correct": "Bu'aa sirreessi",
+      "cancel": "Dhiisi",
+      "version": "Fooyya'iinsa",
+      "date": "Guyyaa",
+      "source": "Madda",
+      "asOf": "Hanga",
+      "coverage": "Haguuggii gabaasaa",
+      "verification": "Mirkaneessa",
+      "of": "keessaa",
+      "open": "Bani",
+      "history": "Seenaa",
+      "noRecords": "Galmeen hin jiru",
+      "back": "Duubatti",
+      "total": "Waliigala",
+      "venue": "Bakka"
+    },
+    "verification": {
+      "verified": "Mirkanaa'eera",
+      "partially_verified": "Gartokkoon mirkanaa'eera",
+      "unverified": "Hin mirkanoofne"
+    },
+    "cc": {
+      "title": "Giddugala ajajaa naannoo",
+      "intro": "Murtoowwanii fi ragaa hin guutamne dursa. Lakkoofsi hundi hiika, madda, haguuggii fi guyyaa isaa ni agarsiisa.",
+      "indicators": {
+        "coverage": {
+          "label": "Federeeshinoota seenan",
+          "definition": "Federeeshinoota beekamtii qaban bakka hojii hojii irra jiru qaban ÷ federeeshinoota galmee raggaasifame keessa jiran."
+        },
+        "participants": {
+          "label": "Hirmaattota adda galmaa'an",
+          "definition": "Namoota addaa hirmaannaa guyyaa qabu hojii irra jiru qaban. Galmee sagantaa ykn argama miti."
+        },
+        "competitions": {
+          "label": "Dorgommiiwwan bu'aan mirkanaa'e",
+          "definition": "Dorgommiiwwan xumuraman bu'aan isaanii mirkanaa'e ÷ dorgommiiwwan xumuraman."
+        },
+        "facilities": {
+          "label": "Dhaabbilee itti fayyadamni mirkanaa'e",
+          "definition": "Dhaabbilee yeroo kanaa itti fayyadama mirkanaa'e gabaasan ÷ dhaabbilee galmee keessa jiran."
+        }
+      },
+      "noReport": "Gabaasni hin dhufne",
+      "denominatorUnknown": "Hiraan ammallee irratti hin walii galamne",
+      "federationReporting": "Gabaasa federeeshinootaa ji'a kanaa",
+      "monthly": {
+        "accepted": "Fudhatameera",
+        "submitted": "Ilaalcha eegaa jira",
+        "overdue": "Yeroon darbeera"
+      },
+      "openActions": "Gochaalee banaa",
+      "actionQueue": "Tarree gochaa fi ragaa",
+      "due": "Yeroo xumuraa",
+      "actionKinds": {
+        "overdue_report": "Gabaasa yeroon darbe",
+        "duplicate": "Galmee lama ta'uu danda'u",
+        "expiring_qualification": "Ulaagaan xumuramaa jira",
+        "unvalidated_result": "Bu'aa mirkaneessa eegu"
+      }
+    },
+    "fed": {
+      "intro": "Galmeewwan, dorgommiiwwanii fi dirqamoota federeeshinii kanaa qofa.",
+      "clubs": "Kilaboota",
+      "people": "Namoota",
+      "events": "Taateewwan",
+      "notBuilt": "Fuulli hojii ispoortii kanaa Marsaa 5ffaa keessatti ijaarama. Fuulli galmee waliinii as jira."
+    },
+    "club": {
+      "recognition": {
+        "recognised": "Beekamtii qaba",
+        "pending": "Beekamtiin eegamaa jira",
+        "unverified": "Hin mirkanoofne"
+      },
+      "territory": "Naannoo",
+      "sections": "Kutaalee ispoortii",
+      "squads": "Gareewwan",
+      "staff": "Hojjettoota",
+      "obligationsOpen": "Dirqamoota banaa",
+      "documents": "Sanadootaa fi seeraan hojjechuu",
+      "docStatus": {
+        "accepted": "Fudhatameera",
+        "returned": "Sirreeffamaaf deebi'eera",
+        "expiring": "Dhiheenyatti xumurama",
+        "missing": "Hin dhufne"
+      }
+    },
+    "athlete": {
+      "identity": {
+        "verified": "Eenyummaan mirkanaa'eera",
+        "pending": "Mirkaneessi eenyummaa eegamaa jira",
+        "disputed": "Eenyummaan falmii irra jira"
+      },
+      "birthYear": "Bara dhalootaa",
+      "roles": "Gaheewwanii fi hirmaannaa",
+      "role": {
+        "athlete": "Atleetii",
+        "coach": "Leenjisaa",
+        "official": "Abbaa murtii/Qondaala"
+      },
+      "from": "Irraa",
+      "to": "Hanga",
+      "current": "Amma",
+      "qualifications": "Ulaagaalee",
+      "expires": "Itti xumurama",
+      "qualStatus": {
+        "verified": "Kennaa irraa mirkanaa'eera",
+        "pending_issuer": "Kennaa eegaa jira"
+      },
+      "results": "Bu'aa mirkanaa'e",
+      "resultStatus": {
+        "published": "Maxxanfameera",
+        "superseded": "Sirreeffamaan bakka bu'ameera"
+      },
+      "externalIds": "Wabiiwwan alaa",
+      "verifiedOn": "Kan mirkanaa'e",
+      "clearance": "Haala hayyamaa",
+      "clearanceStatus": {
+        "cleared": "Hayyamameera",
+        "pending": "Eegamaa jira",
+        "not_required": "Hin barbaachisu"
+      },
+      "clearanceNote": "Haalli qofa agarsiifama. Odeeffannoon fayyaa fi eegumsaa ogeeyyii hayyama qaban bira tura.",
+      "sportScopeNote": "Hirmaannaan guyyaa qaba, ispoortii tokkoon tokkoon adda. Kilaba jijjiiruun ispoortii tokko keessatti ulaagaa ispoortii biroo hin jijjiiru."
+    },
+    "entries": {
+      "title": "Ilaalcha galmee",
+      "intro": "Sirnichi seerota raggaasifaman ni qorata, rakkoos ni agarsiisa. Qorannoo kufe ykn shakkii qabu hunda galmeessaan hayyama qabu murteessa.",
+      "competition": "Dorgommii",
+      "club": "Kilaba",
+      "category": "Ramaddii",
+      "member": "Miseensa",
+      "shirt": "Lakk.",
+      "checks": "Qorannoo ulaagaa",
+      "rules": {
+        "active_affiliation": "Hirmaannaa hojii irra jiru",
+        "age_category": "Ramaddii umurii",
+        "not_suspended": "Hin dhorkamne",
+        "duplicate_resolved": "Galmeen lama furameera"
+      },
+      "outcome": {
+        "pass": "Darbeera",
+        "fail": "Kufeera",
+        "exception": "Ilaalcha barbaada"
+      },
+      "allow": "Hayyami (addatti)",
+      "refuse": "Didi",
+      "decided": "Murtiin galmaa'eera",
+      "allowed": "Hayyamameera",
+      "refused": "Dideameera",
+      "awaiting": "Murtii eegaa jira",
+      "acceptEntry": "Galmee fudhadhu",
+      "entryAccepted": "Galmeen fudhatameera",
+      "decideAllFirst": "Galmee fudhachuun dura miseensa mallattoo qabu hunda murteessi."
+    },
+    "results": {
+      "title": "Bu'aa",
+      "versions": "Fooyya'iinsa bu'aa",
+      "status": {
+        "draft": "Wixinee",
+        "submitted": "Ergameera",
+        "validated": "Mirkanaa'eera",
+        "published": "Maxxanfameera",
+        "superseded": "Bakka bu'ameera"
+      },
+      "home": "Mana",
+      "away": "Keessummaa",
+      "goals": "Goolii",
+      "lane": "Daandii",
+      "bib": "Lakk. qomaa",
+      "name": "Maqaa",
+      "time": "Yeroo (sek)",
+      "outcome": "Bu'aa",
+      "outcomes": {
+        "OK": "Xumureera",
+        "DNS": "Hin jalqabne",
+        "DNF": "Hin xumurre",
+        "DQ": "Ala ta'eera"
+      },
+      "correctionNote": "Sirreeffamni gonkumaa irra hin barreessu. Fooyya'iinsa haaraa uuma, kan duraa sababa waliin eega.",
+      "segregationNote": "Qondaalli erga, gamaaggamaan teeknikaa biraa mirkaneessa, hoogganaan dorgommii maxxansa.",
+      "roleOfficial": "Qondaala",
+      "roleReviewer": "Gamaaggamaa teeknikaa",
+      "roleManager": "Hoogganaa dorgommii",
+      "actor": "Kan raawwate",
+      "placeholderReason": "fkn. iyyanni koree naamusaatiin fudhatame"
+    },
+    "plans": {
+      "title": "Karoorota murtii eegan",
+      "intro": "Karoorota waggaa federeeshinootaa Biiroof ergaman. Karoora deebisuuf sababni barbaachisa; federeeshiniin fooyya'iinsa haaraa ni erga.",
+      "federation": "Federeeshinii",
+      "fiscalYear": "Bara baajataa",
+      "submittedOn": "Kan ergame",
+      "activities": "Gochaalee",
+      "budget": "Baajata (Birr)",
+      "approved": "Raggaasifameera",
+      "returned": "Federeeshiniif deebi'eera",
+      "fiscalYearLabel": "{year} B.B.I",
+      "financeNote": "Lakkoofsi baajataa wabii raggaasisaaf qofa. Galmeen herregaa sirrii sirna faayinaansii keessa tura."
+    }
+  }
 }
