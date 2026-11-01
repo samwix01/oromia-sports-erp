@@ -37,5 +37,231 @@
     "pillarsHeading": "Five pillars",
     "noData": "No report received"
   },
-  "languages": { "om": "Afaan Oromoo", "am": "አማርኛ", "en": "English" }
+  "languages": {
+    "om": "Afaan Oromoo",
+    "am": "አማርኛ",
+    "en": "English"
+  },
+  "proto": {
+    "nav": {
+      "home": "Home",
+      "commandCentre": "Command centre",
+      "plans": "Plans inbox",
+      "clubs": "Clubs",
+      "athletes": "People",
+      "entries": "Entries",
+      "results": "Results"
+    },
+    "demoTag": "Demo",
+    "notSaved": "Prototype: changes stay on this page only and are not saved.",
+    "common": {
+      "status": "Status",
+      "actions": "Actions",
+      "reason": "Reason",
+      "reasonRequired": "A reason is required.",
+      "approve": "Approve",
+      "return": "Return",
+      "submit": "Submit",
+      "validate": "Validate",
+      "publish": "Publish",
+      "correct": "Correct result",
+      "cancel": "Cancel",
+      "version": "Version",
+      "date": "Date",
+      "source": "Source",
+      "asOf": "As of",
+      "coverage": "Reporting coverage",
+      "verification": "Verification",
+      "of": "of",
+      "open": "Open",
+      "history": "History",
+      "noRecords": "No records",
+      "back": "Back",
+      "total": "Total",
+      "venue": "Venue"
+    },
+    "verification": {
+      "verified": "Verified",
+      "partially_verified": "Partly verified",
+      "unverified": "Not verified"
+    },
+    "cc": {
+      "title": "Regional command centre",
+      "intro": "Decisions and incomplete evidence first. Every figure shows its definition, source, coverage and date.",
+      "indicators": {
+        "coverage": {
+          "label": "Federations onboarded",
+          "definition": "Recognised federations with an active workspace ÷ federations in the approved register."
+        },
+        "participants": {
+          "label": "Unique registered participants",
+          "definition": "Distinct people with an active dated affiliation. Not enrolments or attendances."
+        },
+        "competitions": {
+          "label": "Competitions with validated results",
+          "definition": "Completed in-scope competitions whose results are validated ÷ completed competitions."
+        },
+        "facilities": {
+          "label": "Facilities with verified use",
+          "definition": "Facilities reporting verified use this period ÷ facilities in the register."
+        }
+      },
+      "noReport": "No report received",
+      "denominatorUnknown": "Denominator not yet agreed",
+      "federationReporting": "Federation reporting this month",
+      "monthly": {
+        "accepted": "Accepted",
+        "submitted": "Awaiting review",
+        "overdue": "Overdue"
+      },
+      "openActions": "Open actions",
+      "actionQueue": "Action and evidence queue",
+      "due": "Due",
+      "actionKinds": {
+        "overdue_report": "Overdue report",
+        "duplicate": "Possible duplicate",
+        "expiring_qualification": "Qualification expiring",
+        "unvalidated_result": "Result awaiting validation"
+      }
+    },
+    "fed": {
+      "intro": "Records, competitions and obligations for this federation only.",
+      "clubs": "Clubs",
+      "people": "People",
+      "events": "Events",
+      "notBuilt": "This sport's operational screens are built in Milestone 5. Shared registry screens are shown here."
+    },
+    "club": {
+      "recognition": {
+        "recognised": "Recognised",
+        "pending": "Recognition pending",
+        "unverified": "Unverified"
+      },
+      "territory": "Territory",
+      "sections": "Sport sections",
+      "squads": "Squads",
+      "staff": "Staff",
+      "obligationsOpen": "Open obligations",
+      "documents": "Documents and compliance",
+      "docStatus": {
+        "accepted": "Accepted",
+        "returned": "Returned for correction",
+        "expiring": "Expiring soon",
+        "missing": "Not received"
+      }
+    },
+    "athlete": {
+      "identity": {
+        "verified": "Identity verified",
+        "pending": "Identity check pending",
+        "disputed": "Identity disputed"
+      },
+      "birthYear": "Year of birth",
+      "roles": "Roles and affiliations",
+      "role": {
+        "athlete": "Athlete",
+        "coach": "Coach",
+        "official": "Official"
+      },
+      "from": "From",
+      "to": "To",
+      "current": "Current",
+      "qualifications": "Qualifications",
+      "expires": "Expires",
+      "qualStatus": {
+        "verified": "Verified with issuer",
+        "pending_issuer": "Awaiting issuer"
+      },
+      "results": "Validated results",
+      "resultStatus": {
+        "published": "Published",
+        "superseded": "Superseded by correction"
+      },
+      "externalIds": "External references",
+      "verifiedOn": "Verified on",
+      "clearance": "Clearance status",
+      "clearanceStatus": {
+        "cleared": "Cleared",
+        "pending": "Pending",
+        "not_required": "Not required"
+      },
+      "clearanceNote": "Only the status is shown. Medical and safeguarding details stay with authorised professionals.",
+      "sportScopeNote": "Affiliations are dated and separate per sport. A club change in one sport does not change eligibility in another."
+    },
+    "entries": {
+      "title": "Entry review",
+      "intro": "The system checks the approved rules and flags issues. An authorised registrar decides every failed or uncertain check.",
+      "competition": "Competition",
+      "club": "Club",
+      "category": "Category",
+      "member": "Member",
+      "shirt": "No.",
+      "checks": "Eligibility checks",
+      "rules": {
+        "active_affiliation": "Active affiliation",
+        "age_category": "Age category",
+        "not_suspended": "Not suspended",
+        "duplicate_resolved": "Duplicate resolved"
+      },
+      "outcome": {
+        "pass": "Pass",
+        "fail": "Fail",
+        "exception": "Needs review"
+      },
+      "allow": "Allow (override)",
+      "refuse": "Refuse",
+      "decided": "Decision recorded",
+      "allowed": "Allowed",
+      "refused": "Refused",
+      "awaiting": "Awaiting decision",
+      "acceptEntry": "Accept entry",
+      "entryAccepted": "Entry accepted",
+      "decideAllFirst": "Decide every flagged member before accepting the entry."
+    },
+    "results": {
+      "title": "Result",
+      "versions": "Result versions",
+      "status": {
+        "draft": "Draft",
+        "submitted": "Submitted",
+        "validated": "Validated",
+        "published": "Published",
+        "superseded": "Superseded"
+      },
+      "home": "Home",
+      "away": "Away",
+      "goals": "Goals",
+      "lane": "Lane",
+      "bib": "Bib",
+      "name": "Name",
+      "time": "Time (s)",
+      "outcome": "Outcome",
+      "outcomes": {
+        "OK": "Finished",
+        "DNS": "Did not start",
+        "DNF": "Did not finish",
+        "DQ": "Disqualified"
+      },
+      "correctionNote": "A correction never overwrites. It creates a new version and keeps the original with the reason.",
+      "segregationNote": "Submitted by the official, validated by a different technical reviewer, published by the competition manager.",
+      "roleOfficial": "Official",
+      "roleReviewer": "Technical reviewer",
+      "roleManager": "Competition manager",
+      "actor": "By",
+      "placeholderReason": "e.g. protest upheld by disciplinary committee"
+    },
+    "plans": {
+      "title": "Plans awaiting decision",
+      "intro": "Federation annual plans submitted to the Bureau. Returning a plan requires a reason; the federation resubmits a new version.",
+      "federation": "Federation",
+      "fiscalYear": "Fiscal year",
+      "submittedOn": "Submitted",
+      "activities": "Activities",
+      "budget": "Budget (ETB)",
+      "approved": "Approved",
+      "returned": "Returned to federation",
+      "fiscalYearLabel": "{year} EFY",
+      "financeNote": "Budget figures are references for approval. The official ledger stays in the finance system."
+    }
+  }
 }

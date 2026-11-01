@@ -37,5 +37,231 @@
     "pillarsHeading": "አምስቱ ምሰሶዎች",
     "noData": "ሪፖርት አልደረሰም"
   },
-  "languages": { "om": "Afaan Oromoo", "am": "አማርኛ", "en": "English" }
+  "languages": {
+    "om": "Afaan Oromoo",
+    "am": "አማርኛ",
+    "en": "English"
+  },
+  "proto": {
+    "nav": {
+      "home": "መነሻ",
+      "commandCentre": "የትዕዛዝ ማዕከል",
+      "plans": "የዕቅድ ሳጥን",
+      "clubs": "ክለቦች",
+      "athletes": "ሰዎች",
+      "entries": "ምዝገባዎች",
+      "results": "ውጤቶች"
+    },
+    "demoTag": "ማሳያ",
+    "notSaved": "ፕሮቶታይፕ፦ ለውጦች በዚህ ገጽ ላይ ብቻ ይቆያሉ፤ አይቀመጡም።",
+    "common": {
+      "status": "ሁኔታ",
+      "actions": "ተግባራት",
+      "reason": "ምክንያት",
+      "reasonRequired": "ምክንያት ያስፈልጋል።",
+      "approve": "አጽድቅ",
+      "return": "መልስ",
+      "submit": "አስገባ",
+      "validate": "አረጋግጥ",
+      "publish": "አትም",
+      "correct": "ውጤት አስተካክል",
+      "cancel": "ሰርዝ",
+      "version": "ስሪት",
+      "date": "ቀን",
+      "source": "ምንጭ",
+      "asOf": "እስከ",
+      "coverage": "የሪፖርት ሽፋን",
+      "verification": "ማረጋገጫ",
+      "of": "ከ",
+      "open": "ክፈት",
+      "history": "ታሪክ",
+      "noRecords": "መዝገብ የለም",
+      "back": "ተመለስ",
+      "total": "ድምር",
+      "venue": "ቦታ"
+    },
+    "verification": {
+      "verified": "ተረጋግጧል",
+      "partially_verified": "በከፊል ተረጋግጧል",
+      "unverified": "አልተረጋገጠም"
+    },
+    "cc": {
+      "title": "ክልላዊ የትዕዛዝ ማዕከል",
+      "intro": "ውሳኔዎችና ያልተሟሉ ማስረጃዎች ይቀድማሉ። እያንዳንዱ አሃዝ ትርጉሙን፣ ምንጩን፣ ሽፋኑንና ቀኑን ያሳያል።",
+      "indicators": {
+        "coverage": {
+          "label": "የተካተቱ ፌዴሬሽኖች",
+          "definition": "ንቁ የሥራ ቦታ ያላቸው ዕውቅና ያገኙ ፌዴሬሽኖች ÷ በጸደቀው መዝገብ ያሉ ፌዴሬሽኖች።"
+        },
+        "participants": {
+          "label": "ልዩ የተመዘገቡ ተሳታፊዎች",
+          "definition": "ንቁ ቀን ያለው አባልነት ያላቸው የተለያዩ ሰዎች። የፕሮግራም ምዝገባ ወይም ተገኝነት አይደለም።"
+        },
+        "competitions": {
+          "label": "ውጤታቸው የተረጋገጠ ውድድሮች",
+          "definition": "ውጤታቸው የተረጋገጠ የተጠናቀቁ ውድድሮች ÷ የተጠናቀቁ ውድድሮች።"
+        },
+        "facilities": {
+          "label": "አጠቃቀማቸው የተረጋገጠ ተቋማት",
+          "definition": "በዚህ ጊዜ የተረጋገጠ አጠቃቀም ሪፖርት ያደረጉ ተቋማት ÷ በመዝገቡ ያሉ ተቋማት።"
+        }
+      },
+      "noReport": "ሪፖርት አልደረሰም",
+      "denominatorUnknown": "መለያው ገና አልተስማማበትም",
+      "federationReporting": "የዚህ ወር የፌዴሬሽን ሪፖርት",
+      "monthly": {
+        "accepted": "ተቀብሏል",
+        "submitted": "ግምገማ በመጠበቅ ላይ",
+        "overdue": "ጊዜው አልፏል"
+      },
+      "openActions": "ክፍት ተግባራት",
+      "actionQueue": "የተግባርና ማስረጃ ወረፋ",
+      "due": "የመጨረሻ ቀን",
+      "actionKinds": {
+        "overdue_report": "ጊዜው ያለፈ ሪፖርት",
+        "duplicate": "ሊደገም የሚችል መዝገብ",
+        "expiring_qualification": "የሚያበቃ ብቃት",
+        "unvalidated_result": "ማረጋገጫ የሚጠብቅ ውጤት"
+      }
+    },
+    "fed": {
+      "intro": "የዚህ ፌዴሬሽን መዝገቦች፣ ውድድሮችና ግዴታዎች ብቻ።",
+      "clubs": "ክለቦች",
+      "people": "ሰዎች",
+      "events": "ውድድሮች",
+      "notBuilt": "የዚህ ስፖርት የሥራ ገጾች በምዕራፍ 5 ይገነባሉ። የጋራ መዝገብ ገጾች እዚህ ይታያሉ።"
+    },
+    "club": {
+      "recognition": {
+        "recognised": "ዕውቅና አግኝቷል",
+        "pending": "ዕውቅና በመጠባበቅ ላይ",
+        "unverified": "አልተረጋገጠም"
+      },
+      "territory": "አካባቢ",
+      "sections": "የስፖርት ክፍሎች",
+      "squads": "ቡድኖች",
+      "staff": "ሠራተኞች",
+      "obligationsOpen": "ክፍት ግዴታዎች",
+      "documents": "ሰነዶችና ተገዢነት",
+      "docStatus": {
+        "accepted": "ተቀብሏል",
+        "returned": "ለማስተካከል ተመልሷል",
+        "expiring": "በቅርቡ ያበቃል",
+        "missing": "አልደረሰም"
+      }
+    },
+    "athlete": {
+      "identity": {
+        "verified": "ማንነት ተረጋግጧል",
+        "pending": "የማንነት ማረጋገጫ በመጠባበቅ ላይ",
+        "disputed": "ማንነት አከራካሪ ነው"
+      },
+      "birthYear": "የትውልድ ዓመት",
+      "roles": "ሚናዎችና አባልነቶች",
+      "role": {
+        "athlete": "አትሌት",
+        "coach": "አሰልጣኝ",
+        "official": "ዳኛ/ኃላፊ"
+      },
+      "from": "ከ",
+      "to": "እስከ",
+      "current": "አሁን",
+      "qualifications": "ብቃቶች",
+      "expires": "የሚያበቃበት",
+      "qualStatus": {
+        "verified": "ከሰጪው ተረጋግጧል",
+        "pending_issuer": "ሰጪውን በመጠበቅ ላይ"
+      },
+      "results": "የተረጋገጡ ውጤቶች",
+      "resultStatus": {
+        "published": "ታትሟል",
+        "superseded": "በማስተካከያ ተተክቷል"
+      },
+      "externalIds": "የውጭ ማጣቀሻዎች",
+      "verifiedOn": "የተረጋገጠበት",
+      "clearance": "የፈቃድ ሁኔታ",
+      "clearanceStatus": {
+        "cleared": "ተፈቅዷል",
+        "pending": "በመጠባበቅ ላይ",
+        "not_required": "አያስፈልግም"
+      },
+      "clearanceNote": "ሁኔታው ብቻ ይታያል። የሕክምናና የጥበቃ ዝርዝሮች ከተፈቀደላቸው ባለሙያዎች ጋር ይቆያሉ።",
+      "sportScopeNote": "አባልነቶች ቀን ያላቸውና በእያንዳንዱ ስፖርት የተለዩ ናቸው። በአንድ ስፖርት ክለብ መቀየር በሌላው ብቁነትን አይቀይርም።"
+    },
+    "entries": {
+      "title": "የምዝገባ ግምገማ",
+      "intro": "ሥርዓቱ የጸደቁ ደንቦችን ይፈትሻል፤ ችግሮችን ያመላክታል። ያልተሳካ ወይም አጠራጣሪ ፍተሻን ሁሉ የተፈቀደለት መዝጋቢ ይወስናል።",
+      "competition": "ውድድር",
+      "club": "ክለብ",
+      "category": "ምድብ",
+      "member": "አባል",
+      "shirt": "ቁ.",
+      "checks": "የብቁነት ፍተሻዎች",
+      "rules": {
+        "active_affiliation": "ንቁ አባልነት",
+        "age_category": "የዕድሜ ምድብ",
+        "not_suspended": "ያልታገደ",
+        "duplicate_resolved": "ድግግሞሽ ተፈቷል"
+      },
+      "outcome": {
+        "pass": "አልፏል",
+        "fail": "ወድቋል",
+        "exception": "ግምገማ ያስፈልገዋል"
+      },
+      "allow": "ፍቀድ (ልዩ)",
+      "refuse": "ከልክል",
+      "decided": "ውሳኔ ተመዝግቧል",
+      "allowed": "ተፈቅዷል",
+      "refused": "ተከልክሏል",
+      "awaiting": "ውሳኔ በመጠበቅ ላይ",
+      "acceptEntry": "ምዝገባውን ተቀበል",
+      "entryAccepted": "ምዝገባው ተቀባይነት አግኝቷል",
+      "decideAllFirst": "ምዝገባውን ከመቀበልዎ በፊት ምልክት የተደረገባቸውን አባላት ሁሉ ይወስኑ።"
+    },
+    "results": {
+      "title": "ውጤት",
+      "versions": "የውጤት ስሪቶች",
+      "status": {
+        "draft": "ረቂቅ",
+        "submitted": "ቀርቧል",
+        "validated": "ተረጋግጧል",
+        "published": "ታትሟል",
+        "superseded": "ተተክቷል"
+      },
+      "home": "ባለሜዳ",
+      "away": "እንግዳ",
+      "goals": "ግቦች",
+      "lane": "መስመር",
+      "bib": "የደረት ቁጥር",
+      "name": "ስም",
+      "time": "ጊዜ (ሰከንድ)",
+      "outcome": "ውጤት",
+      "outcomes": {
+        "OK": "አጠናቋል",
+        "DNS": "አልጀመረም",
+        "DNF": "አላጠናቀቀም",
+        "DQ": "ተሰርዟል"
+      },
+      "correctionNote": "ማስተካከያ ፈጽሞ አይደመስስም። አዲስ ስሪት ይፈጥራል፤ የመጀመሪያውን ከምክንያቱ ጋር ያስቀምጣል።",
+      "segregationNote": "በዳኛው ይቀርባል፣ በሌላ የቴክኒክ ገምጋሚ ይረጋገጣል፣ በውድድር ሥራ አስኪያጁ ይታተማል።",
+      "roleOfficial": "ዳኛ",
+      "roleReviewer": "የቴክኒክ ገምጋሚ",
+      "roleManager": "የውድድር ሥራ አስኪያጅ",
+      "actor": "በ",
+      "placeholderReason": "ለምሳሌ፦ ቅሬታው በዲሲፕሊን ኮሚቴ ተቀባይነት አግኝቷል"
+    },
+    "plans": {
+      "title": "ውሳኔ የሚጠብቁ ዕቅዶች",
+      "intro": "ለቢሮው የቀረቡ የፌዴሬሽን ዓመታዊ ዕቅዶች። ዕቅድን ለመመለስ ምክንያት ያስፈልጋል፤ ፌዴሬሽኑ አዲስ ስሪት ያቀርባል።",
+      "federation": "ፌዴሬሽን",
+      "fiscalYear": "የበጀት ዓመት",
+      "submittedOn": "የቀረበበት",
+      "activities": "ተግባራት",
+      "budget": "በጀት (ብር)",
+      "approved": "ጸድቋል",
+      "returned": "ለፌዴሬሽኑ ተመልሷል",
+      "fiscalYearLabel": "{year} በጀት ዓመት",
+      "financeNote": "የበጀት አሃዞች ለማጽደቅ ማጣቀሻ ብቻ ናቸው። ይፋዊ የሂሳብ መዝገቡ በፋይናንስ ሥርዓቱ ውስጥ ይቆያል።"
+    }
+  }
 }
