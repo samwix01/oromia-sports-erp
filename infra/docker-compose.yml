@@ -30,8 +30,10 @@ services:
     ports: ["8333:8333"]
     volumes: [objdata:/data, ./objectstore/s3.json:/etc/seaweedfs/s3.json:ro]
     healthcheck:
-      test: ["CMD-SHELL", "wget -q -O /dev/null http://localhost:8333/healthz || exit 1"]
+      # S3 gateway listening and the master reporting cluster status.
+      test: ["CMD-SHELL", "nc -z localhost 8333 && wget -q -O /dev/null http://localhost:9333/cluster/status"]
       interval: 5s
+      start_period: 20s
       retries: 30
 
   objectstore-buckets:
