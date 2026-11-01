@@ -26,7 +26,7 @@ services:
   # SeaweedFS's S3 gateway. Production storage is any S3-compatible service (ADR-07, OD-01).
   objectstore:
     image: chrislusf/seaweedfs:3.80
-    command: server -dir=/data -s3 -s3.port=8333 -s3.config=/etc/seaweedfs/s3.json
+    command: server -ip=localhost -ip.bind=0.0.0.0 -dir=/data -s3 -s3.port=8333 -s3.config=/etc/seaweedfs/s3.json
     ports: ["8333:8333"]
     volumes: [objdata:/data, ./objectstore/s3.json:/etc/seaweedfs/s3.json:ro]
     healthcheck:
