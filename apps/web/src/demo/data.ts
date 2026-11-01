@@ -120,6 +120,28 @@ export const PEOPLE: Person[] = [
     externalIds: [],
     clearance: 'not_required',
   },
+  {
+    id: 'p-005',
+    name: 'Demo Athlete 005',
+    birthYear: 2004,
+    identity: 'verified',
+    roles: [{ role: 'athlete', sport: 'volleyball', clubId: 'club-a', from: '2024-09-11' }],
+    qualifications: [],
+    results: [],
+    externalIds: [],
+    clearance: 'cleared',
+  },
+  {
+    id: 'p-006',
+    name: 'Demo Rider 006',
+    birthYear: 2001,
+    identity: 'pending',
+    roles: [{ role: 'athlete', sport: 'cycling', clubId: 'club-c', from: '2025-11-01' }],
+    qualifications: [],
+    results: [],
+    externalIds: [],
+    clearance: 'pending',
+  },
 ];
 
 export type Eligibility = 'pass' | 'fail' | 'exception';

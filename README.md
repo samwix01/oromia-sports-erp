@@ -48,3 +48,9 @@ pnpm dev               # API on :4000 (docs at /api/docs), web on :3000
 - Health: `GET http://localhost:4000/api/v1/health` (503 if any dependency is down)
 - Web: http://localhost:3000 — Afaan Oromo by default; switch language, workspace and Ethiopian/Gregorian calendar in the header
 - Keycloak admin: http://localhost:8080 (admin / admin, local only)  · S3 endpoint: http://localhost:8333 · MailHog: http://localhost:8025
+
+## Demo deployment (Render)
+
+The clickable prototype (fictional data only) deploys to Render as a static site from `render.yaml`:
+Render dashboard → **New → Blueprint** → choose this repository. Every push to `main` redeploys.
+To build it locally: `pnpm --filter @oromia/web build:demo` (output in `apps/web/out`).

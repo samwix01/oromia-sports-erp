@@ -56,7 +56,7 @@ test('entry review needs a human decision with a reason for every flagged member
 });
 
 test('a published result is corrected as a new version, never overwritten (rule 3)', async ({ page }) => {
-  await page.goto('/en/football/results/ev-fb-1/');
+  await page.goto('/en/results/ev-fb-1/');
   const status = page.getByTestId('current-status');
   await expect(status).toHaveText('Draft');
   await page.getByRole('button', { name: /^Submit/ }).click();

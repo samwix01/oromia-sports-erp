@@ -56,7 +56,7 @@ export function FederationHome({ sport }: { sport: Sport }) {
             {events.length === 0 ? <li className="text-muted-foreground">{t('common.noRecords')}</li> : null}
             {events.map((e) => (
               <li key={e.id}>
-                <Link className="underline" href={`/${sport}/results/${e.id}`}>
+                <Link className="underline" href={`/results/${e.id}`}>
                   {e.title}
                 </Link>
                 <div className="text-xs text-muted-foreground">
