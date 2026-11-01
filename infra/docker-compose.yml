@@ -22,28 +22,34 @@ services:
       interval: 5s
       retries: 20
 
-  minio:
-    image: quay.io/minio/minio:RELEASE.2024-12-18T13-15-44Z
-    command: server /data --console-address ":9001"
-    environment:
-      MINIO_ROOT_USER: oromia-dev
-      MINIO_ROOT_PASSWORD: oromia-dev-secret
-    ports: ["9000:9000", "9001:9001"]
-    volumes: [miniodata:/data]
+  # S3-compatible object storage. MinIO no longer publishes public container images, so local dev uses
+  # SeaweedFS's S3 gateway. Production storage is any S3-compatible service (ADR-07, OD-01).
+  objectstore:
+    image: chrislusf/seaweedfs:3.80
+    command: server -dir=/data -s3 -s3.port=8333 -s3.config=/etc/seaweedfs/s3.json
+    ports: ["8333:8333"]
+    volumes: [objdata:/data, ./objectstore/s3.json:/etc/seaweedfs/s3.json:ro]
     healthcheck:
-      test: ["CMD", "mc", "ready", "local"]
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://localhost:8333/healthz || exit 1"]
       interval: 5s
-      retries: 20
+      retries: 30
 
-  minio-buckets:
-    image: quay.io/minio/mc:RELEASE.2024-11-21T17-21-54Z
-    depends_on: { minio: { condition: service_healthy } }
-    entrypoint: >
-      /bin/sh -c "
-      mc alias set local http://minio:9000 oromia-dev oromia-dev-secret &&
-      mc mb --ignore-existing local/documents local/imports local/public &&
-      mc mb --ignore-existing --with-lock local/evidence &&
-      mc version enable local/documents"
+  objectstore-buckets:
+    image: amazon/aws-cli:2.22.0
+    depends_on: { objectstore: { condition: service_healthy } }
+    environment:
+      AWS_ACCESS_KEY_ID: oromia-dev
+      AWS_SECRET_ACCESS_KEY: oromia-dev-secret
+      AWS_DEFAULT_REGION: us-east-1
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        set -e
+        S3="aws --endpoint-url http://objectstore:8333 s3api"
+        for b in documents imports public; do $$S3 create-bucket --bucket $$b || true; done
+        $$S3 create-bucket --bucket evidence --object-lock-enabled-for-bucket || $$S3 create-bucket --bucket evidence || true
+        $$S3 put-bucket-versioning --bucket documents --versioning-configuration Status=Enabled || true
+        $$S3 list-buckets
 
   keycloak:
     image: quay.io/keycloak/keycloak:26.0
@@ -60,4 +66,4 @@ services:
 
 volumes:
   pgdata:
-  miniodata:
+  objdata:

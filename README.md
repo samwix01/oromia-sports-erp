@@ -41,10 +41,10 @@ Requires Node 22, pnpm 9 and Docker.
 ```bash
 cp .env.example .env
 pnpm install
-pnpm infra:up          # Postgres+PostGIS, Redis, MinIO, Keycloak, MailHog
+pnpm infra:up          # Postgres+PostGIS, Redis, S3 storage (SeaweedFS), Keycloak, MailHog
 pnpm dev               # API on :4000 (docs at /api/docs), web on :3000
 ```
 
 - Health: `GET http://localhost:4000/api/v1/health` (503 if any dependency is down)
 - Web: http://localhost:3000 — Afaan Oromo by default; switch language, workspace and Ethiopian/Gregorian calendar in the header
-- Keycloak admin: http://localhost:8080 (admin / admin, local only) · MinIO console: http://localhost:9001 · MailHog: http://localhost:8025
+- Keycloak admin: http://localhost:8080 (admin / admin, local only)  · S3 endpoint: http://localhost:8333 · MailHog: http://localhost:8025

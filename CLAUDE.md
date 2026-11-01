@@ -32,7 +32,7 @@ federation workspaces, and a foundation that any recognised sport can join.
 - Monorepo: **pnpm workspaces + Turborepo**, TypeScript everywhere (strict mode).
 - API: **NestJS** modular monolith, REST + OpenAPI, Zod for validation (`nestjs-zod`).
 - DB: **PostgreSQL 16 + PostGIS**, **Drizzle ORM** + SQL migrations, Row-Level Security for scope isolation.
-- Jobs: **Redis + BullMQ**. Files: **S3-compatible (MinIO)**. Identity: **Keycloak** (OIDC, MFA).
+- Jobs: **Redis + BullMQ**. Files: **S3-compatible** (SeaweedFS locally; any S3 service in production). Identity: **Keycloak** (OIDC, MFA).
 - Web: **Next.js (App Router)** + Tailwind + shadcn/ui, **next-intl** (om, am, en). PWA + IndexedDB for offline capture.
 - Tests: Vitest (unit), Testcontainers (integration), Playwright (e2e).
 
@@ -40,7 +40,7 @@ federation workspaces, and a foundation that any recognised sport can join.
 
 ```bash
 pnpm install
-pnpm dev                 # docker compose up (postgres, redis, minio, keycloak) + api + web
+pnpm dev                 # docker compose up (postgres, redis, S3 storage, keycloak) + api + web
 pnpm db:migrate          # apply migrations
 pnpm db:seed             # load FICTIONAL demo data only
 pnpm test                # unit

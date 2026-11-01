@@ -1,0 +1,9 @@
+{
+  "identities": [
+    {
+      "name": "oromia-dev",
+      "credentials": [{ "accessKey": "oromia-dev", "secretKey": "oromia-dev-secret" }],
+      "actions": ["Admin", "Read", "Write", "List", "Tagging"]
+    }
+  ]
+}

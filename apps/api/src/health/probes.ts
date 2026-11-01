@@ -33,7 +33,11 @@ export function createProbes(cfg: AppConfig): Probes {
         redis.disconnect();
       }
     },
-    objectStorage: () => httpOk(`${cfg.objectStorageUrl}/minio/health/live`, cfg.probeTimeoutMs),
+    // Any S3-compatible service: an HTTP answer below 500 (an anonymous GET is usually 403) means it is up.
+    objectStorage: async () => {
+      const res = await fetch(cfg.objectStorageUrl, { signal: AbortSignal.timeout(cfg.probeTimeoutMs) });
+      if (res.status >= 500) throw new Error(`HTTP ${res.status} from ${cfg.objectStorageUrl}`);
+    },
     identity: () =>
       httpOk(`${cfg.keycloakUrl}/realms/${cfg.keycloakRealm}/.well-known/openid-configuration`, cfg.probeTimeoutMs),
   };
