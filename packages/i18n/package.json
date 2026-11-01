@@ -1,0 +1,8 @@
+{
+  "name": "@oromia/i18n",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./index.js", "./messages/*": "./messages/*" },
+  "scripts": { "test": "node --test check-catalogues.test.mjs", "lint": "node check-catalogues.mjs" }
+}

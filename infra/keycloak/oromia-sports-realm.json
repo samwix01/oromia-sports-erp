@@ -1,0 +1,32 @@
+{
+  "realm": "oromia-sports",
+  "enabled": true,
+  "displayName": "Oromia Digital Sports Hub",
+  "internationalizationEnabled": true,
+  "supportedLocales": ["en", "am"],
+  "defaultLocale": "en",
+  "loginWithEmailAllowed": true,
+  "registrationAllowed": false,
+  "bruteForceProtected": true,
+  "passwordPolicy": "length(12) and notUsername",
+  "otpPolicyType": "totp",
+  "ssoSessionIdleTimeout": 1800,
+  "clients": [
+    {
+      "clientId": "oromia-web",
+      "name": "Institutional portal",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "redirectUris": ["http://localhost:3000/*"],
+      "webOrigins": ["http://localhost:3000"],
+      "attributes": { "pkce.code.challenge.method": "S256" }
+    },
+    {
+      "clientId": "oromia-api",
+      "name": "API (bearer-only resource)",
+      "publicClient": false,
+      "bearerOnly": true
+    }
+  ]
+}

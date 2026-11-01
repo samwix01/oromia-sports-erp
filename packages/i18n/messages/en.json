@@ -1,0 +1,41 @@
+{
+  "app": {
+    "name": "Oromia Digital Sports Hub",
+    "tagline": "One regional ecosystem. A foundation for every recognised sport.",
+    "illustrative": "Illustrative — no live Oromia data"
+  },
+  "shell": {
+    "workspace": "Workspace",
+    "language": "Language",
+    "calendar": "Calendar",
+    "calendarEthiopian": "Ethiopian",
+    "calendarGregorian": "Gregorian",
+    "today": "Today",
+    "online": "Online",
+    "offline": "Offline — changes will sync when connected",
+    "pendingSync": "{count, plural, =0 {Nothing to sync} one {# change waiting to sync} other {# changes waiting to sync}}",
+    "signIn": "Sign in",
+    "menu": "Menu"
+  },
+  "workspaces": {
+    "bureau": "Culture and Sport Bureau",
+    "football": "Oromia Football Federation",
+    "athletics": "Oromia Athletics Federation",
+    "volleyball": "Oromia Volleyball Federation",
+    "cycling": "Oromia Cycling Federation"
+  },
+  "pillars": {
+    "governance": "Digital Bureau and Federations",
+    "operations": "Sports Operations",
+    "development": "Sports Development",
+    "facilities": "Digital Sports Facilities",
+    "intelligence": "Sports Intelligence"
+  },
+  "home": {
+    "title": "Welcome",
+    "intro": "Choose a workspace to begin. Records, approvals and reports you can see depend on your role, organisation, sport and territory.",
+    "pillarsHeading": "Five pillars",
+    "noData": "No report received"
+  },
+  "languages": { "om": "Afaan Oromoo", "am": "አማርኛ", "en": "English" }
+}

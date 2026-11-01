@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      # No lockfile is committed yet (first install happens in CI). Once pnpm-lock.yaml
+      # is committed, switch this to --frozen-lockfile.
+      - run: pnpm install --no-frozen-lockfile
+      - name: Module boundaries + i18n parity
+        run: node tools/check-boundaries.mjs && node packages/i18n/check-catalogues.mjs
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build
+
+  infra-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Start local stack
+        run: docker compose -f infra/docker-compose.yml up -d --wait postgres redis minio
+      - name: Check extensions
+        run: docker compose -f infra/docker-compose.yml exec -T postgres psql -U oromia -d oromia_sports -c "SELECT extname FROM pg_extension ORDER BY 1;"
+      - if: always()
+        run: docker compose -f infra/docker-compose.yml down -v
+
+  image-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aquasecurity/trivy-action@0.28.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          severity: CRITICAL,HIGH
+          ignore-unfixed: true
+          exit-code: '0'

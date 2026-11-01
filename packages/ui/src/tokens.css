@@ -1,0 +1,34 @@
+/* Design tokens. Light and dark themes; colours are neutral placeholders until branding is agreed. */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 40%;
+  --border: 214 32% 88%;
+  --primary: 152 60% 28%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 4 74% 46%;
+  --warning: 38 92% 45%;
+  --radius: 0.6rem;
+  --font-sans: 'Noto Sans', 'Noto Sans Ethiopic', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --background: 222 40% 8%;
+    --foreground: 210 40% 96%;
+    --muted: 217 30% 15%;
+    --muted-foreground: 215 20% 70%;
+    --border: 217 25% 22%;
+    --primary: 152 55% 45%;
+    --primary-foreground: 222 40% 8%;
+  }
+}
+:root[data-theme='dark'] {
+  --background: 222 40% 8%;
+  --foreground: 210 40% 96%;
+  --muted: 217 30% 15%;
+  --muted-foreground: 215 20% 70%;
+  --border: 217 25% 22%;
+  --primary: 152 55% 45%;
+  --primary-foreground: 222 40% 8%;
+}
